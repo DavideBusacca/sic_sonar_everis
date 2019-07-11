@@ -1,0 +1,50 @@
+body {
+  margin: 25px;
+}
+
+.tooltip {
+  font-weight: bold;
+  padding: 0.5rem;
+  border: 1px solid silver;
+}
+
+.hidden {
+  display: none;
+}
+
+#map {
+  /*width: 900px;
+  height: 600px;*/
+  border: 1px solid silver;
+  background: #E6E6E6;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; // Non-prefixed version, currently
+            pointer-events:none;
+
+}
+
+/* Thanks to http://colorbrewer2.org/ */
+.YlGnBu .q0-9{fill:rgb(255,255,217)}
+.YlGnBu .q1-9{fill:rgb(237,248,177)}
+.YlGnBu .q2-9{fill:rgb(199,233,180)}
+.YlGnBu .q3-9{fill:rgb(127,205,187)}
+.YlGnBu .q4-9{fill:rgb(65,182,196)}
+.YlGnBu .q5-9{fill:rgb(29,145,192)}
+.YlGnBu .q6-9{fill:rgb(34,94,168)}
+.YlGnBu .q7-9{fill:rgb(37,52,148)}
+.YlGnBu .q8-9{fill:rgb(8,29,88)}
+
+g.features {
+  stroke: #d8d8d8;
+  stroke-width: 0.5;
+}
+g.features path:hover {
+  opacity: 0.5;
+}
