@@ -25,6 +25,6 @@ function wrapper(d, i){
     console.log("You just pressed barri #" + d.properties.C_Barri + " with ID: " + i)
     noteToPlay = Tone.Frequency(d.properties.C_Barri, "midi").toNote();
     console.log("Playing note: " + noteToPlay);
-    synth.triggerRelease ( )
+    // synth.triggerRelease ( )
     synth.triggerAttackRelease(noteToPlay, "8n", Tone.context.currentTime);
 }
