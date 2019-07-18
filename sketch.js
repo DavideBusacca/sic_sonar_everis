@@ -4,7 +4,7 @@
 // Code for: https://youtu.be/BjoM9oKOAKY
 
 var inc = 0.02;
-var scl = 10;
+var scl = 20;
 var cols, rows;
 var zoff = 0;
 var fr;
