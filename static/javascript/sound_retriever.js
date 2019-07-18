@@ -4,7 +4,7 @@ function initSearch(callback) {
     search.setToken();
     search.page_size = 100;
     search.sounds = [];
-    
+
     $.getJSON( "./data/instruments_by_origin.json", function(data) {
         search.countryData = data;
         callback();
@@ -36,7 +36,7 @@ Search.prototype.firstQuery = function (query, callback) {
             filter: query
         },
         function (sounds) {
-            console.log(sounds);
+            //console.log(sounds);
             self.num_pages = Math.ceil(sounds.count / self.page_size);
             callback();
         })
@@ -45,7 +45,7 @@ Search.prototype.firstQuery = function (query, callback) {
 Search.prototype.mainQuery = function (country, keywords, index, callback) {
     // query freesound with given keywords and country as tag filter
     var self = this;
-    
+
     // create filter string
     if (keywords.length > 0) {
         var filter_str = 'tag: (';
@@ -57,16 +57,16 @@ Search.prototype.mainQuery = function (country, keywords, index, callback) {
     } else {
         var filter_str = "tag: " + country;
     }
-    
+
     filter_str += " duration: [0 TO 20]"
-    console.log(filter_str);
-    
+    //console.log(filter_str);
+
     // queries
     self.firstQuery(filter_str, function () {
         // random params
         // TODO: add some params
         var page = Math.floor(Math.random() * self.num_pages) + 1;
-        console.log(self.num_pages)
+        //console.log(self.num_pages)
 
         freesound.textSearch("", {
                 page_size: 1,
@@ -83,16 +83,16 @@ Search.prototype.mainQuery = function (country, keywords, index, callback) {
                     sounds.push(results.results[i]);
                 }
                 self.sounds[index] = sounds;
-                console.log(sounds);
-                
+                //console.log(sounds);
+
                 self.count_countries += 1
-                
+
                 if (self.count_countries == self.num_countries) {
                     // Call audio callback
-                    console.log(self.sounds);
+                    //console.log(self.sounds);
                     callback(self.sounds);
                 }
-                
+
                 // create embbeds
                 // TODO: call audio callback load sounds
 //                var msg = ""
@@ -111,7 +111,7 @@ Search.prototype.querySoundsFromCountry = function (country, index, callback) {
     // retrieve typical sounds from the given country
     // TODO: perform queries for several country (or other concepts)
     instruments = this.country2instruments(country);
-        console.log([country, instruments, index])
+        //console.log([country, instruments, index])
     this.mainQuery(country, instruments, index, callback);
 };
 

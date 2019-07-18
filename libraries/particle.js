@@ -33,8 +33,8 @@ function Particle(X,Y,id,color) {
       //print("hit " + this.id);
       //chickenWrapper();
       //var input = document.getElementById("test");
-      console.log("I'm calling " + this.id);
-      playEvent(this.id);
+      //console.log("I'm calling " + this.id);
+      //playEvent(this.id);
       this.in = 1;
     }
 

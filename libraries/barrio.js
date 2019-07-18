@@ -12,7 +12,7 @@ function Barrio(X,Y, id, size, scl){
     this.no_cursor_in = 0;
     this.colors = randomColor({
         count: 7,
-        hue: color_palette[int(random(0,7))],
+        hue: color_palette[this.id%7],
         format: 'rgba'
     });
     this.flowfield = new Array(this.col_rows * this.col_rows);
@@ -61,9 +61,9 @@ function Barrio(X,Y, id, size, scl){
                 strokeWeight(2);
                 line(0, 0, this.scl, 0);
                 pop();*/
-                noFill();
+                //noFill();
                 //scale(0.5);
-                rect(0,0,this.size,this.size);
+                //rect(0,0,this.size,this.size);
             }
         }
         yoff += this.inc;
