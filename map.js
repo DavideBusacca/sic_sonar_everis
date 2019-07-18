@@ -225,4 +225,3 @@ function getValueOfData(d) {
 function getIdOfFeature(f) {
   return f.properties.C_Barri;
 }
-

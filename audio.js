@@ -51,7 +51,7 @@ function playEvent(category){
 
 function updateSounds(sounds){ //, duration
     var idx = 0;
-    console.log(sounds);
+    //console.log(sounds);
     NUM_CATEGORIES = sounds.length;
     for (let i = 0; i < sounds.length; i++){
         soundsInCategory = sounds[i];
@@ -59,14 +59,13 @@ function updateSounds(sounds){ //, duration
         for (let l = 0; l < soundsInCategory.length; l++){
             note = Tone.Frequency(idx, "midi").toNote();
             notesInCategory.push(note);
-            console.log(soundsInCategory[l])
+            //console.log(soundsInCategory[l])
             sampler.add(note, soundsInCategory[l]["previews"]["preview-lq-ogg"]);
-            console.log("Updated " + soundsInCategory[l]["previews"]["preview-lq-ogg"] + " to " + note);
+            //console.log("Updated " + soundsInCategory[l]["previews"]["preview-lq-ogg"] + " to " + note);
             idx += 1;
         }
         notes.push(notesInCategory);
     }
-    console.log(notes);
+    //console.log(notes);
     return notes;
 }
-

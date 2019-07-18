@@ -16,11 +16,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="./static/javascript/freesound.js"></script>
 <script src="./static/javascript/sound_retriever.js"></script>
-    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!--<a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by saragnzalez - www.freepik.com</a>-->
 <!--Logos were made by  Sara Gonzales https://www.freepik.com/saragnzalez downloaded at https://www.freepik.com/free-vector/social-media-logotype-collection_4089462.htm-->
 
 	<script src="audio.js"></script>
+	<script src="libraries/randomColor.js"></script>
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
 	<script src="libraries/p5.sound.js"></script>
@@ -32,25 +34,21 @@
 
 <script>
     // Audio Engine variables
-    var dimensionSampler = [];
+    var sampler = [];
     var notes = [];
 
-    // todo: pause_animation()
     // Freesound retriever
-    search = initSearch(function () {
+    /*search = initSearch(function () {
         // TODO: get list of countries from d3 component
-        search.querySoundsFromCountries(["rim", "clap", "Africa", "violin", "bass", "fx"], function (sounds) { // , "guitar"
+        search.querySoundsFromCountries(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
             // Audio Engine
-			[sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
-			// samplerDistortion.distortion = 0.1 * MAXIMUM_DISTORTION
+            sampler = audioInit()
             notes = updateSounds(sounds);
         });
-    // todo: start_animation()
-    });
-
-
+    });/
 </script>
+
 <script src="sketch.js"></script>
-    
+
 </body>
 </html>
