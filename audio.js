@@ -1,4 +1,5 @@
 var DEFAULT_SOUND_DURATION = 2;
+var NUM_CATEGORIES = 0;
 
 
 function audioInit(){
@@ -23,7 +24,7 @@ function getRandomIntArbitrary(min, max) {
 }
 
 function playEvent(category){
-    category = category % 2; //debug
+    category = category % NUM_CATEGORIES; //debug
     try{
         indexToPlay = getRandomIntArbitrary(0, notes[category].length);
         noteToPlay = (notes[category][indexToPlay]);
@@ -34,16 +35,10 @@ function playEvent(category){
     }
 }
 
-var urls = [
-    ["https://freesound.org/data/previews/181/181736_351215-lq.ogg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/152714/Kick_11.wav",],
-    ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/152714/clap_2.wav",
-    "https://freesound.org/data/previews/86/86660_14771-lq.ogg"]
-    ];
-
 function updateSounds(sounds){ //, duration
     var idx = 0;
-    console.log(sounds)
+    console.log(sounds);
+    NUM_CATEGORIES = sounds.length;
     for (let i = 0; i < sounds.length; i++){
         soundsInCategory = sounds[i];
         notesInCategory = [];
@@ -52,7 +47,7 @@ function updateSounds(sounds){ //, duration
             notesInCategory.push(note);
             console.log(soundsInCategory[l])
             sampler.add(note, soundsInCategory[l]["previews"]["preview-lq-ogg"]);
-            console.log("Updated " + urls[i][l] + " to " + note);
+            console.log("Updated " + soundsInCategory[l]["previews"]["preview-lq-ogg"] + " to " + note);
             idx += 1;
         }
         notes.push(notesInCategory);
