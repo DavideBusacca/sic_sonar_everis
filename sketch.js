@@ -101,7 +101,7 @@ function setup() {
   no_cursor_y = height/2;
   no_cursor_angle = 0;
   no_cursor_dir = 0.5;
-  no_cursor_mag = 0.5;
+  no_cursor_mag = 5;
 
   background(0);
 
@@ -154,18 +154,24 @@ pop();
     rect(rect_x*rect_size,rect_y*rect_size,rect_size,rect_size);
   }
   pop();
+  if (keyIsDown(LEFT_ARROW)){
+    no_cursor_angle = no_cursor_angle - 0.1;
+  }
+  if (keyIsDown(RIGHT_ARROW)){
+    no_cursor_angle = no_cursor_angle + 0.1;
+  }
 
 }
 
 
 
-function keyPressed() {
+/*function keyPressed() {
   if (keyCode === LEFT_ARROW) {
     no_cursor_angle = no_cursor_angle - 0.1;
   } else if (keyCode === RIGHT_ARROW) {
     no_cursor_angle = no_cursor_angle + 0.1;
   }
-}
+}*/
 
 function mouseClicked() {
   var Y = int((mouseX-80)/rect_size);
