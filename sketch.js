@@ -159,13 +159,32 @@ pop();
 
 
 
+var left_arrow_pressed = false;
+var right_arrow_pressed = false;
+	
+setInterval(function () {
+    if (left_arrow_pressed) {
+        no_cursor_angle = no_cursor_angle - 0.15;
+    } else if (right_arrow_pressed) {
+	   no_cursor_angle = no_cursor_angle + 0.15;
+    }
+}, 150);
+	
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    no_cursor_angle = no_cursor_angle - 0.1;
-  } else if (keyCode === RIGHT_ARROW) {
-    no_cursor_angle = no_cursor_angle + 0.1;
-  }
+    if (keyCode === LEFT_ARROW) {
+        left_arrow_pressed = true;
+    } else if (keyCode === RIGHT_ARROW) {
+        right_arrow_pressed = true;
+    }
 }
+	
+function keyReleased() {
+    if (keyCode === LEFT_ARROW) {
+        left_arrow_pressed = false;
+    } else if (keyCode === RIGHT_ARROW) {
+        right_arrow_pressed = false;
+    }
+} 
 
 function mouseClicked() {
   var Y = int((mouseX-80)/rect_size);
