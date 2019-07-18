@@ -7,12 +7,12 @@ function audioInit(){
     var sampler = new Tone.Sampler( );
 
     var samplerVolume = new Tone.Volume(-24);
-    // var samplerDistortion = new Tone.Distortion(2.5);
-    // sampler.chain(samplerDistortion, samplerVolume);
-    sampler.chain(samplerVolume, Tone.Master);
+    var samplerDistortion = new Tone.Distortion(0);
+    sampler.chain(samplerDistortion, samplerVolume, Tone.Master);
+
     Tone.Master.chain(limiter);
 
-    return sampler
+    return [sampler, samplerDistortion]
 
 }
 
