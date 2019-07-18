@@ -26,7 +26,7 @@ function Particle(X,Y) {
     this.acc.mult(0);
 
     if ((this.no_cursor_dist < 10) && (this.in == 0)){
-      print("hit " + this.id);
+      //print("hit " + this.id);
       playEvent(this.id);
       //var input = document.getElementById("test");
       //this.in = 1;

@@ -4,7 +4,7 @@
 // Code for: https://youtu.be/BjoM9oKOAKY
 
 var inc = 0.02;
-var scl = 30;
+var scl = 10;
 var cols, rows;
 var zoff = 0;
 var fr;
@@ -27,8 +27,8 @@ var no_cursor_mag;
 // for red, green, and blue color values
 let r, g, b;
 
-var set_w = 200;
-var set_h = 200;
+var set_w = 800;
+var set_h = 800;
 
 function setup() {
   createCanvas(set_w,set_h);
@@ -42,7 +42,7 @@ function setup() {
   no_cursor_y = height/2;
   no_cursor_angle = 0;
   no_cursor_dir = 0.5;
-  no_cursor_mag = 0.5;
+  no_cursor_mag = 5;
   /*coordsX[0] =56.5;
   coordsY[0] =-204.66;
 
@@ -163,7 +163,7 @@ translate(no_cursor_x, no_cursor_y);
 rotate(no_cursor_angle);
 rect(-25, -5, 50, 10);
 //line(-10,10,-10,10);
-ellipse(0,0,50,50);
+//ellipse(0,0,50,50);
 pop();
 
 

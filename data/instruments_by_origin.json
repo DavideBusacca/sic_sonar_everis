@@ -1,0 +1,825 @@
+{
+    "Philippines": [
+        "Agung a Tamlang",
+        "Dabakan",
+        "Inci",
+        "Kalaleng",
+        "Palendag",
+        "Pasiyak or water whistle",
+        "Pulalu",
+        "Tumpong",
+        "Faglong/Fuglung",
+        "Fegereng",
+        "Hegelong",
+        "Kadlong",
+        "Kubing",
+        "Kudyapi"
+    ],
+    "Africa,[1] Asia[2]": [
+        "Bamboo slit drum"
+    ],
+    "Africa": [
+        "Balafon",
+        "Mbira"
+    ],
+    "Peru": [
+        "Caj\u00f3n",
+        "Samponia"
+    ],
+    "Spain": [
+        "Castanets",
+        "Dulzaina",
+        "Fiscorn",
+        "Flabiol",
+        "Gralla",
+        "Robero",
+        "Tenora",
+        "Tible",
+        "Trikiti",
+        "Txistu",
+        "Vihuela",
+        "Viol\nPardessus de viole\nTreble viol (dessus)\nAlto viol\nTenor viol (taille)\nBass viol\nGreat bass violone\nContrabass violone"
+    ],
+    "Australia": [
+        "Clapsticks/Clave sticks",
+        "Didgeridoo"
+    ],
+    "Romania": [
+        "Cymbal"
+    ],
+    "United States": [
+        "Octa-Vibraphone",
+        "Appalachian dulcimer"
+    ],
+    "France/Germany": [
+        "Glockenspiel"
+    ],
+    "": [
+        "Handpan",
+        "Triangle",
+        "Vibraphone",
+        "Wood block",
+        "Drum",
+        "Jew's harp",
+        "Piccolo snare",
+        "Spoon",
+        "Timpani (kettledrum)",
+        "Tom-tom",
+        "Air horn",
+        "Baritone voice",
+        "Bazooka",
+        "Beatboxing",
+        "Castrato",
+        "Conch",
+        "Corrugaphone",
+        "Countertenor",
+        "Death growl",
+        "Falsetto",
+        "Hosaphone",
+        "Key bugle",
+        "Mezzo-soprano",
+        "Pipe organ (diaphone pipes)",
+        "Pipe organ (flue pipes)",
+        "Pipe organ (free reed pipes)",
+        "Pipe organ (reed pipes)",
+        "Pitch pipe",
+        "Pocket cornet",
+        "Quinticlave",
+        "Rapping",
+        "Reed organ",
+        "Scat singing",
+        "Soprano",
+        "Swordblade",
+        "Tenor",
+        "Throat singing",
+        "Toasting",
+        "Trumpets\nSoprano trumpet\nBass trumpet\nBaroque trumpet\nBass trumpet\nRotary valve trumpet",
+        "Tube trumpet",
+        "Vocal percussion",
+        "Whip",
+        "Whistle\nPea whistle\nSteam whistle\nTrain whistle",
+        "Yodel",
+        "Yotar",
+        "Cuatro",
+        "Double-neck guitjo",
+        "Harmonico",
+        "Vertical viola (and other members of the violin octet family)",
+        "Viola da gamba\n(see Viol)"
+    ],
+    "Guatemala, Africa, Mexico, Honduras, Nicaragua, & Costa Rica": [
+        "Marimba"
+    ],
+    "Trinidad & Tobago": [
+        "Steelpan"
+    ],
+    "Cameroon": [
+        "Xylophone"
+    ],
+    "Suriname": [
+        "Agida",
+        "Apinti"
+    ],
+    "Dominican Republic": [
+        "Alcahuete",
+        "Balsi\u00e9"
+    ],
+    "Cuba": [
+        "Arobap\u00e1",
+        "Barrel drum",
+        "Trompeta china",
+        "Tres\nTres Cubano\nTres Puerto Rico"
+    ],
+    "Nigeria": [
+        "Ashiko"
+    ],
+    "Haiti": [
+        "Assotor"
+    ],
+    "Grenada": [
+        "Baboula"
+    ],
+    "Montserrat": [
+        "Balaban"
+    ],
+    "Virgin Islands": [
+        "Bamboula"
+    ],
+    "Bonaire and Cura\u00e7ao": [
+        "Bari"
+    ],
+    "Puerto Rico": [
+        "Barriles\nbuleador\nprimo\nrepicador\nsubidor",
+        "Bordonua"
+    ],
+    "Turkey": [
+        "Bass drum",
+        "Davul (Dahol, Daul, Daouli, Dhaulli)\nDohol\nTapan, Topan, Tupan\nTabl\nToba, Towla\nTof",
+        "Snare",
+        "Kaval",
+        "Zurna (Turkey)\nSurnay",
+        "Baglama",
+        "C\u00fcmb\u00fc\u015f",
+        "Kemenche",
+        "Saz",
+        "Yayl\u0131 tanbur"
+    ],
+    "Ireland": [
+        "Bodhr\u00e1n",
+        "Lambeg drum",
+        "Irish flute",
+        "Uilleann pipes"
+    ],
+    "Afro-Cuban": [
+        "Bongo drums"
+    ],
+    "US": [
+        "Boobam",
+        "Octaban",
+        "Doulophone/cuprophone",
+        "Flumpet",
+        "Kazoo",
+        "Melodeon",
+        "Sousaphone",
+        "Tromboon",
+        "Autoharp",
+        "Banjo mandolin",
+        "Banjo ukulele",
+        "Chapman stick",
+        "Diddley bow"
+    ],
+    "Uruguay": [
+        "Candombe\nchico\nrepique\npiano",
+        "Tamboril"
+    ],
+    "India": [
+        "Chenda (Chande)\nUruttu chenda\nVeekku chenda\nAcchan chenda",
+        "Dhol",
+        "Dholak (Dholaki)",
+        "Dimdi",
+        "Dollu",
+        "Kanjira",
+        "Khol (Mrdanga)",
+        "Madhalam",
+        "Maddale",
+        "Mridangam",
+        "Pakhavaj",
+        "Tabla",
+        "Thavil",
+        "Bansuri",
+        "Pavari",
+        "Shankha",
+        "Esraj",
+        "Gottuvadhyam",
+        "Mohan veena",
+        "Rudra vina",
+        "Sarangi",
+        "Sarod",
+        "Tanpura",
+        "Veena",
+        "Vichitra vina"
+    ],
+    "Caribbean": [
+        "Conga  (Tumbadora)\nricardo  (smallest)\nrequinto\nquinto\nconga\ntumba\nsupertumba (largest)"
+    ],
+    "Brazil": [
+        "Cu\u00edca",
+        "Surdo",
+        "Tan-tan",
+        "Repique",
+        "Berimbau"
+    ],
+    "Iran": [
+        "Daf (Dap, Def)",
+        "Tombak",
+        "Ney",
+        "Nohkan",
+        "Sorna",
+        "Barbat",
+        "Sallameh",
+        "Santoor",
+        "Tar (lute)"
+    ],
+    "Nepal": [
+        "Dhaa",
+        "Dhimay (Dhimaya)",
+        "Madal",
+        "Piwancha"
+    ],
+    "West Africa": [
+        "Djembe",
+        "Dunun  (Dundun)",
+        "Kora",
+        "Xalam/Khalam"
+    ],
+    "United States of America": [
+        "Drum kit",
+        "Accordola",
+        "Double bell euphonium",
+        "Folgerphone",
+        "Pocket trumpet"
+    ],
+    "Italy": [
+        "Gran Cassa",
+        "Accordina (instrument)",
+        "Cimbasso",
+        "Melodica",
+        "Ocarina\nTransverse ocarina\nPendant ocarina\nInline ocarina\nMulti chambered ocarina\nKeyed ocarina\nSlide ocarina",
+        "Vibrandoneon (instrument)",
+        "Zufolo",
+        "Lirone",
+        "Mandolin\nMando-bass\nMandocello\nMandola\nOctave mandolin (Octave mandola)",
+        "Piano (pianoforte)\nFortepiano\nPedal piano",
+        "Sopranino mandolin"
+    ],
+    "Ancient": [
+        "Goblet drum"
+    ],
+    "Japan": [
+        "Hira-daiko",
+        "Kakko",
+        "O-daiko",
+        "Okedo-daiko",
+        "Shime-jishi daiko",
+        "Taiko",
+        "Tsukeshime-daiko",
+        "Tsuzumi",
+        "Uchiwa-daiko",
+        "Horagai",
+        "Hotchiku",
+        "Kagurabue",
+        "Komabue",
+        "Ryuteki",
+        "Shakuhachi",
+        "Shinobue",
+        "Sh\u014d",
+        "Biwa",
+        "Koky\u016b",
+        "Koto",
+        "Shamisen",
+        "Sitarla"
+    ],
+    "Southern India": [
+        "Idakka"
+    ],
+    "Zimbabwe": [
+        "Ilimba drum"
+    ],
+    "Rwanda": [
+        "Ingoma\nIshakwe\nInyahura\nIgihumurizo"
+    ],
+    "Korea": [
+        "Janggu (Janggo, changgo)",
+        "Danso",
+        "Hun",
+        "Nagak",
+        "Saenghwang",
+        "Taepyeongso",
+        "Tungso",
+        "Ajaeng",
+        "Gayageum",
+        "Geomungo",
+        "Haegeum",
+        "Komungo"
+    ],
+    "Indonesia, Malaysia and Philippines": [
+        "Kendang"
+    ],
+    "Afro-Arab": [
+        "Maktoum (maktoom, katem)"
+    ],
+    "Middle East": [
+        "Naqara",
+        "Naqareh",
+        "Oud"
+    ],
+    "Domenican": [
+        "Pandero"
+    ],
+    "Senegal": [
+        "Sabar"
+    ],
+    "Cambodia": [
+        "Samphor",
+        "Khloy",
+        "Sralai",
+        "Tro"
+    ],
+    "West Africa, India": [
+        "Talking drum"
+    ],
+    "Mexico": [
+        "Tambor huacana",
+        "Tamborita (Mexico)",
+        "Bandol\u00f3n",
+        "Carimba",
+        "Jarana de son jarocho",
+        "Jarana huasteca",
+        "Jarana mosquito",
+        "Jarana segunda",
+        "Jarana tercera",
+        "Requinto jarocho",
+        "Vihuela"
+    ],
+    "Guadeloupe": [
+        "Tambou bas a d\u00e9 fas",
+        "Tambou bas a yon fas"
+    ],
+    "Thailand": [
+        "Taphon",
+        "Khlui",
+        "Saw sam sai"
+    ],
+    "Europe": [
+        "Accordion\nButton accordion\nCajun accordion\nChromatic button accordion\nDiatonic button accordion\nFree bass accordion\nPiano accordion\nSchrammel accordion\nSteirische Harmonika",
+        "Alphorn",
+        "Bagpipe",
+        "Bugle",
+        "Concertina\nChemnitzer concertina",
+        "Cornamuse",
+        "Flutina",
+        "French horn",
+        "Helicon",
+        "Kortholt",
+        "Lituus",
+        "Mellophone",
+        "Rauschpfeife",
+        "Shawm",
+        "Slide trumpet\nMedieval slide trumpet\nRenaissance slide trumpet\nBaroque slide trumpet",
+        "Theorbo"
+    ],
+    "Basque Country": [
+        "Alboka"
+    ],
+    "Belgium": [
+        "Alto horn",
+        "Reed contrabass",
+        "Saxophones\nAlto saxophone\nBaritone saxophone\nBass saxophone\nC melody saxophone\nC Soprano saxophone\nContrabass saxophone\nMezzo-soprano saxophone (Alto in F)\nSopranino saxophone\nSoprano saxophone\nSoprillo\nSubcontrabass saxophone\nTenor saxophone\nTubax\nVenova\nXaphoon",
+        "Saxhorn",
+        "Saxotromba",
+        "Saxtuba"
+    ],
+    "Egypt": [
+        "Arghul"
+    ],
+    "Ghana": [
+        "Atenteben"
+    ],
+    "Azerbaijan, Iran": [
+        "Balaban"
+    ],
+    "Latin America": [
+        "Bandone\u00f3n",
+        "Cuatro"
+    ],
+    "Germany": [
+        "Baritone horn",
+        "Clarinets\nAlto clarinet\nBass clarinet\nBasset clarinet\nBasset horn\nClarinette d'amour\nContra-alto clarinet\nContrabass clarinet\nPiccolo clarinet\nA\u266d clarinet\nSopranino clarinet\nE\u266d clarinet\nD clarinet\nSoprano clarinet\nC clarinet\nB\u266d clarinet\nA clarinet\nG clarinet\nOctocontra-alto clarinet\nOctocontrabass clarinet",
+        "Euphonium",
+        "Flugelhorn",
+        "Gemshorn",
+        "Harmonica\nChromatic harmonica\nDiatonic harmonica\nTremolo harmonica\nOrchestral harmonica\nChenGong harmonica",
+        "Heckelphone\nPiccolo heckelphone\nTerz heckelphone",
+        "Kuhlohorn",
+        "Octavin",
+        "Recorder\nGarklein\nSopranino\nDescant\nTreble or alto\nTenor\nBass\nGreat bass\nContra bass\nSubcontra bass\nSub-subcontrabass\nVenova",
+        "Tuba\nBass tuba\nContrabass tuba\nSubcontrabass tuba",
+        "Wagner tuba",
+        "Zugtrompette",
+        "Aeolian harp",
+        "Violotta"
+    ],
+    "Western Europe": [
+        "Bassoon\nContrabassoon/double bassoon\nTenoroon",
+        "Crumhorn",
+        "Dulcian",
+        "English horn",
+        "Fife",
+        "Oboes:\nBass/Baritone oboe\nContrabass oboe\nCor anglais/English horn\nOboe d'amore\nOboe da caccia\nPiccolo oboe/Oboe musette",
+        "Picco pipe",
+        "Piccolo",
+        "Piccolo trumpet",
+        "Post horn",
+        "Rackett",
+        "Tabor pipe",
+        "Trombones\nSopranino trombone\nSoprano trombone\nAlto trombone\nTenor trombone\nBass trombone\nContrabass trombone\nValve trombone",
+        "Western concert flutes\nFlute\nAlto flute\nBass flute\nContra-alto flute\nContrabass flute\nSubcontrabass flute\nDouble contrabass flute\nHyperbass flute",
+        "Archlute",
+        "Citole",
+        "Cittern",
+        "Clavichord",
+        "Double bass\nFive-string double bass",
+        "Fiddle",
+        "Gittern",
+        "Harpsichord",
+        "Hurdy-gurdy",
+        "Lute",
+        "Mandore",
+        "Rebec",
+        "Tea chest bass",
+        "Trumpet marine/tromba marina",
+        "Vielle",
+        "Zither\nAlpine zither (harp zither)\nConcert zither\nGuitar zither\nOvertone zither"
+    ],
+    "China": [
+        "Bawu",
+        "Dizi",
+        "Guan\nGuanzi\nHouguan",
+        "Hulusi",
+        "Koudi",
+        "Lusheng",
+        "Mangtong",
+        "Paixiao",
+        "Sheng",
+        "Suona\nLaba\nHaidi",
+        "Xiao",
+        "Xun",
+        "Yu",
+        "Dahu",
+        "Dihu",
+        "Duxianqin",
+        "Erhu",
+        "Erxian",
+        "Gaohu",
+        "Gehu",
+        "Guqin",
+        "Guzheng",
+        "Huluhu",
+        "Huqin",
+        "Jiaohu",
+        "Laruan",
+        "Leiqin",
+        "Maguhu",
+        "Pipa",
+        "Ruan\nGaoyinruan\nXiaoruan\nZhongruan\nDaruan\nDiyinruan",
+        "Sanxian",
+        "Se",
+        "Tuhu",
+        "Yazheng",
+        "Yangqin",
+        "Zhonghu",
+        "Zhuihu"
+    ],
+    "Russia": [
+        "Bayan",
+        "Garmon",
+        "Livenka",
+        "Saratovskaya garmonika",
+        "Zhaleika",
+        "Balalaika",
+        "Domra",
+        "Gusli",
+        "Igil"
+    ],
+    "Italy (Sicily)": [
+        "Bifora"
+    ],
+    "Lithuania": [
+        "Birbyn\u0117"
+    ],
+    "Greece": [
+        "Blul",
+        "Dzhamara",
+        "Bouzouki",
+        "Lyra (Cretan)",
+        "Lyre",
+        "Psaltery"
+    ],
+    "France": [
+        "Bombarde\nChromatic bombarde",
+        "Chalumeau",
+        "Cornet\nSoprano cornet",
+        "Cromorne",
+        "Flageolet",
+        "Flute",
+        "Musette de cour",
+        "Ophicleide",
+        "Sackbut\nAlto sackbut\nTenor sackbut\nBass sackbut\nDouble bass sackbut",
+        "Sarrusophones\nAlto sarrusophone\nBaritone sarrusophone\nBass sarrusophone\nContrabass sarrusophone\nSopranino sarrusophone\nSoprano sarrusophone\nTenor sarrusophone",
+        "Serpent",
+        "Sudrophone",
+        "Octobass"
+    ],
+    "Italy (Ancient Rome)": [
+        "Buccina",
+        "Cornu"
+    ],
+    "Ancient civilizations": [
+        "Bullroarer"
+    ],
+    "Western Europe/North America": [
+        "Calliope"
+    ],
+    "South Africa": [
+        "Clarytone",
+        "Musical bow"
+    ],
+    "Northern Europe": [
+        "Cornett"
+    ],
+    "Croatia": [
+        "Diple (or dvojnice)",
+        "Sopila"
+    ],
+    "Armenia": [
+        "Duduk",
+        "Shvi"
+    ],
+    "Tibet": [
+        "Dung-Dkar"
+    ],
+    "Canada": [
+        "Firebird (trumpet)",
+        "Superbone"
+    ],
+    "England": [
+        "Flatt trumpet",
+        "Slide whistle\nJazz flute\nSwanee whistle",
+        "Baryton",
+        "Stroh violin"
+    ],
+    "Slovakia": [
+        "Fujara",
+        "Koncovka"
+    ],
+    "Balkans, Southeast Europe": [
+        "Gaida"
+    ],
+    "Hawaii": [
+        "Hano",
+        "Harmoneon"
+    ],
+    "Denmark": [
+        "Harmonium"
+    ],
+    "North America": [
+        "Jug",
+        "Tonette",
+        "Banjo\nBanjo cello\nBass banjo\nFive-stringed banjo\nBluegrass banjo\nFour-stringed banjo\nPlectrum banjo\nSix-stringed banjo\nTenor banjo\nZither banjo"
+    ],
+    "Vietnam": [
+        "K\u00e8n b\u1ea7u",
+        "\u0110\u00e0n b\u1ea7u",
+        "\u0110\u00e0n \u0111\u00e1y",
+        "\u0110\u00e0n g\u00e1o",
+        "\u0110\u00e0n nguy\u1ec7t",
+        "\u0110\u00e0n tam th\u1eadp l\u1ee5c",
+        "\u0110\u00e0n tranh",
+        "\u0110\u00e0n t\u1ef3 b\u00e0"
+    ],
+    "Laos": [
+        "Khene"
+    ],
+    "Sardinia": [
+        "Launeddas"
+    ],
+    "Levant": [
+        "Mijwiz",
+        "Shofar"
+    ],
+    "Arabia": [
+        "Mizmar"
+    ],
+    "South India": [
+        "Nadaswaram",
+        "Venu"
+    ],
+    "Hmong people (China)": [
+        "Ncas",
+        "Nplooj",
+        "Qeej",
+        "Raj"
+    ],
+    "New Zealand": [
+        "Nguru"
+    ],
+    "Polynesia, Africa, East Asia": [
+        "Nose flute"
+    ],
+    "Khyber Pakhtunkhwa (Pakistan)": [
+        "Nulophone"
+    ],
+    "South America": [
+        "Pan flute",
+        "Quena"
+    ],
+    "Wales": [
+        "Pibgorn",
+        "Crwth (Crowd)"
+    ],
+    "Polynesia": [
+        "Pu"
+    ],
+    "R\u00e9union": [
+        "Ral\u00e9-pouss\u00e9"
+    ],
+    "Northern Africa": [
+        "Rhaita"
+    ],
+    "Etruscan": [
+        "Roman tuba"
+    ],
+    "Switzerland": [
+        "Schwyzer\u00f6rgeli"
+    ],
+    "North India": [
+        "Shehnai"
+    ],
+    "Bolivia": [
+        "Siku"
+    ],
+    "Scotland": [
+        "Siren"
+    ],
+    "Madagascar": [
+        "Sodina",
+        "Kabosy",
+        "Lokanga",
+        "Marovany",
+        "Valiha"
+    ],
+    "Indonesia/Philippines": [
+        "Suling"
+    ],
+    "Central Europe": [
+        "Tarogato",
+        "Mandora"
+    ],
+    "Celtic": [
+        "Tin whistle"
+    ],
+    "Azerbaijan": [
+        "Tutek",
+        "Gopuz"
+    ],
+    "Austria": [
+        "Vienna horn",
+        "Arpeggione",
+        "Xenorphica"
+    ],
+    "South-Africa": [
+        "Vuvuzela"
+    ],
+    "Ethiopia": [
+        "Washint"
+    ],
+    "Scandinavia": [
+        "Willow flute"
+    ],
+    "Uganda": [
+        "Adungu",
+        "Janzi"
+    ],
+    "Ukraine": [
+        "Bandura",
+        "Kobza"
+    ],
+    "Mexico, Spain": [
+        "Bandurria"
+    ],
+    "Portugal": [
+        "Cavaquinho",
+        "Portuguese guitar",
+        "Viola de Arame",
+        "Viola da Terra",
+        "Viola da Terceira"
+    ],
+    "USA": [
+        "Clavinet",
+        "Washtub bass",
+        "Whamola",
+        "Wheelharp"
+    ],
+    "Peru, Bolivia, Argentina": [
+        "Charangos\nCharango\nCharang\u00f3n\nHualaycho (Walaycho)\nRonroco\nHatun charango\nChillador\nAyacucho\nBajo charango\nChango\nCharango mediano\nKhonKhota\nMoquegua\nPampeno\nShreiker\nSonko\nVallegrandino"
+    ],
+    "Hungary": [
+        "Cimbalom\nElectric cymbalum"
+    ],
+    "Kazakhstan": [
+        "Dombra"
+    ],
+    "South Asia": [
+        "Dotara"
+    ],
+    "Central Asia": [
+        "Dutar"
+    ],
+    "India, Pakistan": [
+        "Ektara"
+    ],
+    "Spain, et al": [
+        "Guitars:\nAcoustic guitar\nBaritone guitar\nBass guitar\nChitarra battente\nCigar box guitar\nClassical guitar\nElectric guitar\nElectric bass guitar\nExtended-range guitars\nAlto guitar\nSeven-string guitar\nEight-string guitar\nTen-string guitar\nHarp guitar\nFlamenco guitar\nFusetar\nGuitarra quinta huapanguera\nGuitar synthesizer\nGuitarr\u00f3n (argentino)\nGuitarr\u00f3n (chileno)\nGuitarr\u00f3n (mexicano)\nGuitarr\u00f3n (uruguayo)\nGut-stringed guitars\nLap steel guitars\nDobro\nNational Steel\nMulti-necked guitars\nDouble-neck guitar\nTriple-neck guitar\nQuadruple-neck guitar\nFive-neck guitar\nSix-neck guitar\nSeven-neck guitar\nEight-neck guitar\nRock Ock\nTwelve-neck guitar\nNine-string guitar\nNylon-string guitars\nOctave guitar\nPedal steel guitar\nResophonic guitar\nSteel-string acoustic guitar\nTenor guitar\nTerz guitar\nTwelve-string guitar\nYotar"
+    ],
+    "Worldwide": [
+        "Hammered dulcimer",
+        "Harp"
+    ],
+    "Norway": [
+        "Hardanger fiddle",
+        "Langeleik"
+    ],
+    "Ireland, Greece": [
+        "Irish bouzouki"
+    ],
+    "Persia": [
+        "Kamancha",
+        "Setar (lute)"
+    ],
+    "Finland": [
+        "Kantele"
+    ],
+    "Thailand/Cambodia": [
+        "Khim"
+    ],
+    "Latvia": [
+        "Kokles"
+    ],
+    "Byzantine Empire": [
+        "Lyra (Byzantine)"
+    ],
+    "Algeria": [
+        "Mandole"
+    ],
+    "Mongolia": [
+        "Morin khuur"
+    ],
+    "Sweden": [
+        "Nyckelharpa"
+    ],
+    "Sri Lanka, India": [
+        "Ravanahatha"
+    ],
+    "Afghanistan": [
+        "Rebab"
+    ],
+    "Okinawa": [
+        "Sanshin"
+    ],
+    "Burma": [
+        "Saung"
+    ],
+    "Persia, India, Pakistan and other countries": [
+        "Sitar"
+    ],
+    "Croatia/Serbia": [
+        "Tamburitza"
+    ],
+    "curdo-persiano": [
+        "Temb\u00fbr"
+    ],
+    "Canary Islands": [
+        "Timple"
+    ],
+    "Ukraine, Belarus": [
+        "Tsymbaly"
+    ],
+    "Portugal/Hawaii": [
+        "Ukulele\nPocket ukulele\nSoprano ukulele\nConcert ukulele\nTenor ukulele\nEight-string tenor\nFive-string tenor\nLili'u\nSix-string tenor\nBaritone ukulele\nBass ukulele\nContrabass ukulele\nU-bass\nCigar box ukulele"
+    ],
+    "Italy (Da Vinci)": [
+        "Viola organista"
+    ],
+    "Italy and Western Europe": [
+        "Violin\nPiccolo violino\nViola\nViola d'amore\nTenor viola\nTenor violin\nBaritone violin\nCello (violoncello)\nPiccolo cello"
+    ]
+}

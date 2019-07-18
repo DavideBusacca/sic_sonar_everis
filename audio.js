@@ -1,4 +1,4 @@
-var DEFAULT_SOUND_DURATION = 10;
+var DEFAULT_SOUND_DURATION = 2;
 
 
 function audioInit(){
@@ -24,14 +24,13 @@ function getRandomIntArbitrary(min, max) {
 
 function playEvent(category){
     category = category % 2; //debug
-    indexToPlay = getRandomIntArbitrary(0, notes[category].length);
-    noteToPlay = (notes[category][indexToPlay]);
-
     try{
+        indexToPlay = getRandomIntArbitrary(0, notes[category].length);
+        noteToPlay = (notes[category][indexToPlay]);
         sampler.triggerAttackRelease(noteToPlay, DEFAULT_SOUND_DURATION, Tone.now()); // "32n"
     }
     catch(err){
-        print("opsss!")
+        print(err)
     }
 }
 
@@ -42,16 +41,18 @@ var urls = [
     "https://freesound.org/data/previews/86/86660_14771-lq.ogg"]
     ];
 
-function updateSounds(urls){ //, duration
+function updateSounds(sounds){ //, duration
     var idx = 0;
-    for (let i = 0; i < urls.length; i++){
-        urlsInCategory = urls[i];
+    console.log(sounds)
+    for (let i = 0; i < sounds.length; i++){
+        soundsInCategory = sounds[i];
         notesInCategory = [];
-        for (let l = 0; l < urlsInCategory.length; l++){
+        for (let l = 0; l < soundsInCategory.length; l++){
             note = Tone.Frequency(idx, "midi").toNote();
             notesInCategory.push(note);
-            sampler.add(note, urlsInCategory[l]);
-            // console.log("Updated " + urls[i][l] + " to " + note);
+            console.log(soundsInCategory[l])
+            sampler.add(note, soundsInCategory[l]["previews"]["preview-lq-ogg"]);
+            console.log("Updated " + urls[i][l] + " to " + note);
             idx += 1;
         }
         notes.push(notesInCategory);
