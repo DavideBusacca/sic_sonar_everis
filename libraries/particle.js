@@ -2,24 +2,28 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/BjoM9oKOAKY
+console.log("I'm starting");
 
 let tail = [];
 
-function Particle(X,Y) {
+function Particle(X,Y,id,color) {
   this.pos = createVector(X, Y);
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
   this.dir = 0.5;
+  this.color = color;
   this.maxspeed = 2;
-  this.id = int(random(0,5));
+  this.id = id;
   this.h = 255/this.id;
   this.no_cursor_dist = 100000000;
   this.in = 0;
 
   this.prevPos = this.pos.copy();
 
-  this.update = function(cur_x, cur_y) {
-    this.no_cursor_dist = sqrt(pow(cur_x - this.pos.x,2)+pow(cur_y - this.pos.y,2));
+  this.update = function(cur_x, cur_y, bar_x, bar_y) {
+    this.no_cursor_dist = sqrt(pow((cur_x - (this.pos.x + bar_x)),2)+pow((cur_y - (this.pos.y+bar_y)),2));
+    //print(this.pos.y + bar_y);
+    //print(no_cursor_dist);
     this.vel.add(this.acc);
     this.vel.limit(this.maxspeed);
     this.pos.add(this.vel);
@@ -27,9 +31,11 @@ function Particle(X,Y) {
 
     if ((this.no_cursor_dist < 10) && (this.in == 0)){
       //print("hit " + this.id);
-      playEvent(this.id);
+      //chickenWrapper();
       //var input = document.getElementById("test");
-      //this.in = 1;
+      console.log("I'm calling " + this.id);
+      playEvent(this.id);
+      this.in = 1;
     }
 
     if (this.no_cursor_dist > 10){
@@ -37,7 +43,7 @@ function Particle(X,Y) {
     }
   }
 
-  this.follow = function(vectors) {
+  this.follow = function(vectors,scl,cols) {
     var x = floor(this.pos.x / scl);
     var y = floor(this.pos.y / scl);
     var index = x + y * cols;
@@ -50,8 +56,12 @@ function Particle(X,Y) {
   }
 
   this.show = function() {
-    stroke(this.h, 127-255/this.id, 255 - this.h, 255);
-    fill(this.h, 127-255/this.id, 255 - this.h, 255);
+    stroke(color);
+    fill(color);
+
+    //stroke(this.h, 127-255/this.id, 255 - this.h, 255);
+    //fill(this.h, 127-255/this.id, 255 - this.h, 255);
+
     //this.h = this.h + this.dir;
     if (this.h > 255) {
       this.dir = this.dir *(-1);
@@ -73,21 +83,21 @@ function Particle(X,Y) {
     this.prevPos.y = this.pos.y;
   }
 
-  this.edges = function() {
-    if (this.pos.x > width) {
+  this.edges = function(w,h) {
+    if (this.pos.x > w) {
       this.pos.x = 0;
       this.updatePrev();
     }
     if (this.pos.x < 0) {
-      this.pos.x = width;
+      this.pos.x = w;
       this.updatePrev();
     }
-    if (this.pos.y > height) {
+    if (this.pos.y > h) {
       this.pos.y = 0;
       this.updatePrev();
     }
     if (this.pos.y < 0) {
-      this.pos.y = height;
+      this.pos.y = h;
       this.updatePrev();
     }
 

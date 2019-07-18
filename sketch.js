@@ -3,37 +3,63 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/BjoM9oKOAKY
 
-var inc = 0.02;
-var scl = 20;
-var cols, rows;
-var zoff = 0;
-var fr;
-var particles = [];
+var inc = 0.02;//added
+var scl = 20;//added
+var cols, rows;//added
+var zoff = 0;//added
+//var fr;
+var particles = [];//added
 var flowfield;
-var clicked;
-let coordsX = [];
-let coordsY = [];
-var opcaity;
+//var clicked;
+//let coordsX = [];
+//let coordsY = [];
+//var opcaity;
 var dir;
-var rad_count;
-var rad_dir;
+//var rad_count;
+//var rad_dir;
 
 var no_cursor_x;
 var no_cursos_y;
 var no_cursor_angle;
 var no_cursor_dir;
 var no_cursor_mag;
+var no_cursor_bar;
+var prev_no_cursor_bar;
 
 // for red, green, and blue color values
 let r, g, b;
 
-var set_w = 800;
-var set_h = 800;
+var set_w = 400;
+var set_h = 400;
+var color_list = []
+
+
+var barrios = [];//new Barrio(0,0,1);
+//var barrio2 = [];//new Barrio(0,0,1);
+//var barrio3 = [];//new Barrio(0,0,1);
+//var barrio4 = [];//new Barrio(0,0,1);
 
 function setup() {
   createCanvas(set_w,set_h);
-  noCursor();
-  rad_dir = 5;
+  no_cursor_bar = 0;
+  prev_no_cursor_bar = no_cursor_bar;
+  //noCursor();
+  var count = 0;
+  var size = 200;
+  // var scl = 5;
+  for (var i = 0; i < set_w/size; i++){
+    for (var j = 0; j < set_w/size; j++){
+      barrios[count] = new Barrio(i*size,j*size,count,size, scl);
+      count++;
+    }
+  }
+
+
+  //barrio1 = new Barrio(0,0,1);
+  //barrio2 = new Barrio(100,0,2);
+  //barrio3 = new Barrio(0,100,3);
+  //barrio4 = new Barrio(100,100,4);
+  //rad_dir = 5;
   rad_count = 0;
   dir = 1;
   opacity = 127;
@@ -42,9 +68,11 @@ function setup() {
   no_cursor_y = height/2;
   no_cursor_angle = 0;
   no_cursor_dir = 0.5;
-  no_cursor_mag = 5;
+  no_cursor_mag = 0.5;
   /*coordsX[0] =56.5;
   coordsY[0] =-204.66;
+
+
 
   coordsX[1] =56.5;
   coordsY[1] =-94.66;
@@ -92,157 +120,178 @@ function setup() {
   //path = querySVG('path')[1];
   //colorMode(HSB, 255);
   //SVG stuff
-  clicked = 0;
-  cols = ceil(width / scl);
+  //clicked = 0;
+  /*cols = ceil(width / scl);
   rows = ceil(height / scl);
-  fr = createP('');
-rad_dir
+  //fr = createP('');
+//rad_dir
   flowfield = new Array(cols * rows);
   var count = 0
   for (var i = 0; i < rows; i ++){
     for (var j = 0; j < cols; j ++){
         particles[count] = new Particle(j*(scl)+scl/2,i*(scl)+scl/2);
-        count++;255
+        count++;
       }
-    }
+    }*/
 
   background(0);
-  r = random(255);
-  g = random(255);
-b = random(255);
+  //r = random(255);
+  //g = random(255);
+  //b = random(255);
 }
 
-function changeGray() {
+/*function changeGray() {
   d = d + 10;
   if (d > 100) {2
     d = 0;
   }
-}
+}*/
 //function refresh(){
-	//redraw();
+//redraw();
 //}
 
 function draw() {
-	clear();
+  clear();
   background(0);
 
-/*if (windowWidth > ){
-  windowWidth = set_w;
-}
+  /*if (windowWidth > ){
+    windowWidth = set_w;
+  }
 
-if (windowHeight > set_h){
-  windowHeight = set_h;
-}*/
+  if (windowHeight > set_h){
+    windowHeight = set_h;
+  }*/
 
 
 
 //////////// CURSOR STUFF
 
-no_cursor_x = no_cursor_x + no_cursor_mag * cos(no_cursor_angle);
-no_cursor_y = no_cursor_y + no_cursor_mag * sin(no_cursor_angle);
+  no_cursor_x = no_cursor_x + no_cursor_mag * cos(no_cursor_angle);
+  no_cursor_y = no_cursor_y + no_cursor_mag * sin(no_cursor_angle);
 
-if (no_cursor_x > set_w) {
-  no_cursor_x = 0;
-}
-if (no_cursor_x < 0) {
-  no_cursor_x = set_w;
-}
+  if (no_cursor_x > set_w) {
+    no_cursor_x = 0;
+  }
+  if (no_cursor_x < 0) {
+    no_cursor_x = set_w;
+  }
 
-if (no_cursor_y > set_h) {
-  no_cursor_y = 0;
-}
-if (no_cursor_y < 0) {
-  no_cursor_y = set_h;
-}
+  if (no_cursor_y > set_h) {
+    no_cursor_y = 0;
+  }
+  if (no_cursor_y < 0) {
+    no_cursor_y = set_h;
+  }
+  /*if no_cursor_x < 0 {
+    no_cursor_x = width;
+  }*/
+  push();
+  translate(no_cursor_x, no_cursor_y);
+  rotate(no_cursor_angle);
+  rect(-25, -5, 50, 10);
+  pop();
 
-/*if no_cursor_x < 0 {
-  no_cursor_x = width;
-}*/
-push();
-translate(no_cursor_x, no_cursor_y);
-rotate(no_cursor_angle);
-rect(-25, -5, 50, 10);
-//line(-10,10,-10,10);
-//ellipse(0,0,50,50);
-pop();
+//barrio.update(no_cursor_x,no_cursor_y);
+
+  for (var c = 0; c< barrios.length; c++){
+    push();
+    translate(barrios[c].pos.x,barrios[c].pos.y,)
+    if ((no_cursor_x > barrios[c].pos.x) && (no_cursor_x < (barrios[c].pos.x + barrios[c].size)) && (no_cursor_y > barrios[c].pos.y) && (no_cursor_y < (barrios[c].pos.y + barrios[c].size))){
+      no_cursor_bar = barrios[c].id;
+      if (prev_no_cursor_bar != no_cursor_bar){
+        print("I'm entering " + barrios[c].id);
+
+        // Freesound retriever
+        search = initSearch(function () {
+          // TODO: get list of countries from d3 component
+          search.querySoundsFromCountries(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
+            // Audio Engine
+            sampler = audioInit()
+            notes = updateSounds(sounds);
+          });
+
+        });
+      }
+      prev_no_cursor_bar = no_cursor_bar;
+      //this.no_cursor_in = true;
+    }
+    barrios[c].update(no_cursor_x,no_cursor_y);
+    pop();
+  }
 
 
-
-
-  var yoff = 0;
+  /*var yoff = 0;
   for (var y = 0; y < rows; y++) {
     var xoff = 0;
     for (var x = 0; x < cols; x++) {
       var index = x + y * cols;
       var shortest_dist = 1000000;2
       var dist_ind = 0;
-      if (clicked == 0){
-        var angle = noise(xoff, yoff, zoff) * TWO_PI * 2;
-        var v = p5.Vector.fromAngle(angle);
-        v.setMag(0.02);
-      }
+      var angle = noise(xoff, yoff, zoff) * TWO_PI * 2;
+      var v = p5.Vector.fromAngle(angle);
+      v.setMag(0.02);*/
 
 
-      /*if (clicked == 1){
-        var xP = x * scl+scl/2;
-        var yP = y * scl+scl/2;
-        for (var i = 0; i < 14; i++){
-          var point_dist = dist((windowWidth / 2)+coordsX[i], (windowHeight / 2)+coordsY[i], xP, yP);
-            if (point_dist < shortest_dist){
-              shortest_dist = point_dist;
-              dist_ind = i;
-            }
+  /*if (clicked == 1){
+    var xP = x * scl+scl/2;
+    var yP = y * scl+scl/2;
+    for (var i = 0; i < 14; i++){
+      var point_dist = dist((windowWidth / 2)+coordsX[i], (windowHeight / 2)+coordsY[i], xP, yP);
+        if (point_dist < shortest_dist){
+          shortest_dist = point_dist;
+          dist_ind = i;
         }
-        var dX_j = (windowWidth / 2) + coordsX[dist_ind] - xP;
-        var dY_j = (windowHeight / 2) + coordsY[dist_ind] - yP;
-        var dX_m = mouseX - xP;
-        var dY_m = mouseY - yP;
-        var magn = sqrt(pow(dX_m,2),pow(dY_m,2));
-        var mouse_dist = dist(mouseX, mouseY, xP, yP);
-        if (mouse_dist < 100){
-          var angle = atan2(dY_m,dX_m)-PI;
-          //var angle = (-(1/100) * mouse_dist + 1) *  atan2(dY_m,dX_m)-PI;
-          var v = p5.Vector.fromAngle(angle);
-          v.setMag(0.01);
-          //var angle = (-(1/100) * mouse_dist + 1);// *  atan2(dY_m,dX_m)-PI;
-        }
-        else{
-          var angle = atan2(dY_j,dX_j);
-          var v = p5.Vector.fromAngle(angle);
-          v.setMag(0.01);
-          //var angle = atan2(dY_j,dX_j);
-        }
-        //var xNorm = dX/magn;
-        //var xNorm = dY/magn;
-        //var angle = 0;//atan2(dY,dX)-PI;//);//index;//0;//atan2(yNorm,xNorm);
-      }*/
-
-
-      //v.setMag(4);
-      flowfield[index] = v;
-      xoff += inc;
-        stroke(255, 50);
-
-        ////// DRAW ROTATION
-       /*push();
-       translate(x * scl, y * scl);
-       //ellipse(x, y, 190, 190);
-       rotate(v.heading());
-       //strokeWeight(2);
-       line(0, 0, scl, 0);
-      pop();*/
     }
-    yoff += inc;
+    var dX_j = (windowWidth / 2) + coordsX[dist_ind] - xP;
+    var dY_j = (windowHeight / 2) + coordsY[dist_ind] - yP;
+    var dX_m = mouseX - xP;
+    var dY_m = mouseY - yP;
+    var magn = sqrt(pow(dX_m,2),pow(dY_m,2));
+    var mouse_dist = dist(mouseX, mouseY, xP, yP);
+    if (mouse_dist < 100){
+      var angle = atan2(dY_m,dX_m)-PI;
+      //var angle = (-(1/100) * mouse_dist + 1) *  atan2(dY_m,dX_m)-PI;
+      var v = p5.Vector.fromAngle(angle);
+      v.setMag(0.01);
+      //var angle = (-(1/100) * mouse_dist + 1);// *  atan2(dY_m,dX_m)-PI;
+    }
+    else{
+      var angle = atan2(dY_j,dX_j);
+      var v = p5.Vector.fromAngle(angle);
+      v.setMag(0.01);
+      //var angle = atan2(dY_j,dX_j);
+    }
+    //var xNorm = dX/magn;
+    //var xNorm = dY/magn;
+    //var angle = 0;//atan2(dY,dX)-PI;//);//index;//0;//atan2(yNorm,xNorm);
+  }*/
 
-    zoff += 0.0003;
-  }
 
-  for (var i = 0; i < particles.length; i++) {
-    particles[i].follow(flowfield);
-    particles[i].update(no_cursor_x, no_cursor_y);
-    particles[i].edges();
-    particles[i].show();
-  }
+  //v.setMag(4);
+  /*flowfield[index] = v;
+  xoff += inc;
+    stroke(255, 50);*/
+
+  ////// DRAW ROTATION
+  /*push();
+  translate(x * scl, y * scl);
+  //ellipse(x, y, 190, 190);
+  rotate(v.heading());
+  //strokeWeight(2);
+  line(0, 0, scl, 0);
+ pop();*/
+  /*}
+  yoff += inc;
+
+  zoff += 0.0003;
+}
+
+for (var i = 0; i < particles.length; i++) {
+  particles[i].follow(flowfield);
+  particles[i].update(no_cursor_x, no_cursor_y);
+  particles[i].edges(200,200);
+  particles[i].show();
+}*/
 
 
   //fill();
@@ -332,24 +381,24 @@ pop();
 
 // When the user clicks the mouse
 //function mousePressed() {
-  // Check if mouse is inside the circle    ellipse(x, y, 100, 100);
-  //translate(windowWidth / 2, windowHeight / 2);
-  //ellipse(56.5, -204.66, 100, 100);
-  /*let d = dist(mouseX, mouseY, (windowWidth / 2)+56.5, (windowHeight / 2) - 204.66);
-  if (d < 50) {
-    // Pick new random color values
-    clicked = !clicked;
-    if (clicked){
-      //select('canvas','defaultCanvas0').position(100, 100);
-      select('div','mySidenav').style('width:200px');
-    }
-    if (!clicked){
-      //select('canvas','defaultCanvas0').position(0, 0);
-      select('div','mySidenav').style('width:0px');
-    }
-    rad_count = 0;
-    rad_dir = 5;
-  }*/
+// Check if mouse is inside the circle    ellipse(x, y, 100, 100);
+//translate(windowWidth / 2, windowHeight / 2);
+//ellipse(56.5, -204.66, 100, 100);
+/*let d = dist(mouseX, mouseY, (windowWidth / 2)+56.5, (windowHeight / 2) - 204.66);
+if (d < 50) {
+  // Pick new random color values
+  clicked = !clicked;
+  if (clicked){
+    //select('canvas','defaultCanvas0').position(100, 100);
+    select('div','mySidenav').style('width:200px');
+  }
+  if (!clicked){
+    //select('canvas','defaultCanvas0').position(0, 0);
+    select('div','mySidenav').style('width:0px');
+  }
+  rad_count = 0;
+  rad_dir = 5;
+}*/
 //}
 
 /*function drawGradient(x, y) {
@@ -410,29 +459,12 @@ pop();
   resizeCanvas(windowWidth,windowHeight);
 }*/
 
-var left_arrow_pressed = false;
-var right_arrow_pressed = false;
 
-setInterval(function () {
-    if (left_arrow_pressed) {
-        no_cursor_angle = no_cursor_angle - 0.15;
-    } else if (right_arrow_pressed) {
-        no_cursor_angle = no_cursor_angle + 0.15;
-    }
-}, 150);
 
 function keyPressed() {
   if (keyCode === LEFT_ARROW) {
-      left_arrow_pressed = true;
+    no_cursor_angle = no_cursor_angle - 0.1;
   } else if (keyCode === RIGHT_ARROW) {
-      right_arrow_pressed = true;
-  }
-}
-
-function keyReleased() {
-  if (keyCode === LEFT_ARROW) {
-      left_arrow_pressed = false;
-  } else if (keyCode === RIGHT_ARROW) {
-      right_arrow_pressed = false;
+    no_cursor_angle = no_cursor_angle + 0.1;
   }
 }
