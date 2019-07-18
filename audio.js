@@ -1,4 +1,4 @@
-var DEFAULT_SOUND_DURATION = 5;
+var DEFAULT_SOUND_DURATION = 2;
 var NUM_CATEGORIES = 0;
 
 
@@ -13,9 +13,13 @@ function audioInit(){
     var lfoSamplerDistortion = new Tone.LFO();
     lfoSamplerDistortion.connect(samplerDistortion).start();
 
+    var pingPong = new Tone.PingPongDelay({
+        "delayTime": 0.25,
+        "feedback": 0.7,
+        "wet": 0.2
+    })
 
-
-    Tone.Master.chain(limiter);
+    Tone.Master.chain(pingPong, limiter);
 
     return [sampler, samplerDistortion, lfoSamplerDistortion]
 
