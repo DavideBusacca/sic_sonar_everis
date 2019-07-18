@@ -1,5 +1,6 @@
 var DEFAULT_SOUND_DURATION = 2;
 var NUM_CATEGORIES = 0;
+var MAXIMUM_DISTORTION = 1;
 
 
 function audioInit(){
