@@ -101,7 +101,7 @@ function setup() {
   no_cursor_y = height/2;
   no_cursor_angle = 0;
   no_cursor_dir = 0.5;
-  no_cursor_mag = 0.5;
+  no_cursor_mag = 5;
 
   background(0);
 
@@ -154,10 +154,7 @@ pop();
     rect(rect_x*rect_size,rect_y*rect_size,rect_size,rect_size);
   }
   pop();
-
 }
-
-
 
 var left_arrow_pressed = false;
 var right_arrow_pressed = false;
@@ -168,7 +165,7 @@ setInterval(function () {
     } else if (right_arrow_pressed) {
 	   no_cursor_angle = no_cursor_angle + 0.15;
     }
-}, 150);
+}, 80);
 	
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
@@ -185,6 +182,7 @@ function keyReleased() {
         right_arrow_pressed = false;
     }
 } 
+
 
 function mouseClicked() {
   var Y = int((mouseX-80)/rect_size);
