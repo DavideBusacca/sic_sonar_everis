@@ -1,30 +1,62 @@
-var synth = new Tone.PolySynth(4, Tone.MonoSynth, {
-    "oscillator" : {
-        "type" : "square8"
-    },
-    "envelope" : {
-        "attack" : 0.05,
-        "decay" : 0.3,
-        "sustain" : 0.5,
-        "release" : 0.8,
-    },
-    "filterEnvelope" : {
-        "attack" : 0.001,
-        "decay" : 0.7,
-        "sustain" : 0.1,
-        "release" : 0.8,
-        "baseFrequency" : 300,
-        "octaves" : 4
-    }
-}).toMaster();
+var DEFAULT_SOUND_DURATION = 10;
 
 
-d3.select("myId").on("click", function(d,i) { console.log("You just pressed me") });
+function audioInit(){
+    var limiter = new Tone.Limiter(-3); // in dB
+    var sampler = new Tone.Sampler( );
 
-function wrapper(d, i){
-    console.log("You just pressed barri #" + d.properties.C_Barri + " with ID: " + i)
-    noteToPlay = Tone.Frequency(d.properties.C_Barri, "midi").toNote();
-    console.log("Playing note: " + noteToPlay);
-    // synth.triggerRelease ( )
-    synth.triggerAttackRelease(noteToPlay, "8n", Tone.context.currentTime);
+    var samplerVolume = new Tone.Volume(-24);
+    // var samplerDistortion = new Tone.Distortion(2.5);
+    // sampler.chain(samplerDistortion, samplerVolume);
+    sampler.chain(samplerVolume, Tone.Master);
+    Tone.Master.chain(limiter);
+
+    return sampler
+
 }
+
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomIntArbitrary(min, max) {
+    return Math.ceil(Math.random() * (max - min) + min) - 1;
+}
+
+function playEvent(category){
+    category = category % 2; //debug
+    indexToPlay = getRandomIntArbitrary(0, notes[category].length);
+    noteToPlay = (notes[category][indexToPlay]);
+
+    try{
+        sampler.triggerAttackRelease(noteToPlay, DEFAULT_SOUND_DURATION, Tone.now()); // "32n"
+    }
+    catch(err){
+        print("opsss!")
+    }
+}
+
+var urls = [
+    ["https://freesound.org/data/previews/181/181736_351215-lq.ogg",
+    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/152714/Kick_11.wav",],
+    ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/152714/clap_2.wav",
+    "https://freesound.org/data/previews/86/86660_14771-lq.ogg"]
+    ];
+
+function updateSounds(urls){ //, duration
+    var idx = 0;
+    for (let i = 0; i < urls.length; i++){
+        urlsInCategory = urls[i];
+        notesInCategory = [];
+        for (let l = 0; l < urlsInCategory.length; l++){
+            note = Tone.Frequency(idx, "midi").toNote();
+            notesInCategory.push(note);
+            sampler.add(note, urlsInCategory[l]);
+            // console.log("Updated " + urls[i][l] + " to " + note);
+            idx += 1;
+        }
+        notes.push(notesInCategory);
+    }
+    console.log(notes);
+    return notes;
+}
+

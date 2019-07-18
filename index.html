@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Barcelona Diversity</title>
-    <!-- Custom CSS styles -->
-    <link href="style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <h3>Barcelona Diversity</h3>
-    <div id="map"><!-- Map container --></div>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Everis Diversity Challenge">
 
-    <!-- JS libraries -->
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<title>Everis Diversity Challenge</title>
 
-    <!-- I add to add all these libraries to avoid a warning. The first should be enough! (Davide)    -->
-    <script src="https://unpkg.com/@tonejs/ui"></script>
-    <script src="https://unpkg.com/tone@13.4.9/build/Tone.js"></script>
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+	<!-- I add to add all these libraries to avoid a warning. The first should be enough! (Davide)    -->
+<script src="https://unpkg.com/@tonejs/ui"></script>
+<script src="https://unpkg.com/tone@13.4.9/build/Tone.js"></script>
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+<!--<a href="https://www.freepik.com/free-photos-vectors/logo">Logo vector created by saragnzalez - www.freepik.com</a>-->
+<!--Logos were made by  Sara Gonzales https://www.freepik.com/saragnzalez downloaded at https://www.freepik.com/free-vector/social-media-logotype-collection_4089462.htm-->
 
+	<script src="audio.js"></script>
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="libraries/particle.js"></script>
+	<script src="libraries/barrio.js"></script>
 
+</head>
+<body>
 
-    <!-- Custom JS code -->
-    <script src="audio.js"></script>
-    <script src="map.js"></script>
-<!--    <script src="tonejs.js"></script>-->
-  </body>
+<script>
+	var sampler = audioInit()
+	var dimensionSampler = [];
+	var notes = [];
+	notes = updateSounds(urls)
+</script>
+<script src="sketch.js"></script>
+
+	<!--<div id="mySidenav" class="sidenav">
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>-->
+
+</body>
 </html>

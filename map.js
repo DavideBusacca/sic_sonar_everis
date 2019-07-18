@@ -128,7 +128,7 @@ d3.json('bcn-geodata_1/barris/barris_geo.json', function(error, features) {
         .attr('d', path)
         // When the mouse moves over a feature, show the tooltip.
         .on('mousemove', showTooltip)
-        .on("mousedown", function(d,i) {wrapper(d, i) });  // "click"
+        .on("mousedown", function(d,i) {chickenWrapper(d, i) });  // "click"
 
   });
 
