@@ -8,15 +8,19 @@ function audioInit(){
 
     var samplerVolume = new Tone.Volume(-24);
     var samplerDistortion = new Tone.Distortion(0);
-    sampler.chain(samplerDistortion, samplerVolume, Tone.Master);
+    sampler.chain(samplerVolume, samplerDistortion, Tone.Master);
 
-    var lfoSamplerDistortion = new Tone.LFO();
+    var lfoSamplerDistortion = new Tone.LFO({
+        "min" : 0,
+        "max" : 0.01 * MAXIMUM_DISTORTION,
+        "frequency" : 1
+    });
     lfoSamplerDistortion.connect(samplerDistortion).start();
 
     var pingPong = new Tone.PingPongDelay({
         "delayTime": 0.25,
-        "feedback": 0.7,
-        "wet": 0.2
+        "feedback": 0.3,
+        "wet": 0.15
     })
 
     Tone.Master.chain(pingPong, limiter);
