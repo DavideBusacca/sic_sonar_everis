@@ -46,9 +46,9 @@ function Barrio(X,Y, id, size, scl){
                 //print(index);
                 //var shortest_dist = 1000000;
                 var dist_ind = 0;
-                var angle = noise(yoff, xoff, this.zoff) * TWO_PI * 32;
+                var angle = noise(yoff, xoff, this.zoff) * TWO_PI * 2;
                 var v = p5.Vector.fromAngle(angle);
-                v.setMag(0.01);
+                v.setMag(0.02);
                 //v.setMag(4);
                 this.flowfield[index] = v;
                 xoff += this.inc;
@@ -65,8 +65,8 @@ function Barrio(X,Y, id, size, scl){
                 //scale(0.5);
                 //rect(0,0,this.size,this.size);
             }
+            yoff += this.inc;
         }
-        yoff += this.inc;
         this.zoff += 0.0005;
 
         for (var i = 0; i < this.particles.length; i++) {
