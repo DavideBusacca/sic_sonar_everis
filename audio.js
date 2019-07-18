@@ -1,4 +1,4 @@
-var DEFAULT_SOUND_DURATION = 2;
+var DEFAULT_SOUND_DURATION = 5;
 var NUM_CATEGORIES = 0;
 
 
@@ -10,9 +10,14 @@ function audioInit(){
     var samplerDistortion = new Tone.Distortion(0);
     sampler.chain(samplerDistortion, samplerVolume, Tone.Master);
 
+    var lfoSamplerDistortion = new Tone.LFO();
+    lfoSamplerDistortion.connect(samplerDistortion).start();
+
+
+
     Tone.Master.chain(limiter);
 
-    return [sampler, samplerDistortion]
+    return [sampler, samplerDistortion, lfoSamplerDistortion]
 
 }
 

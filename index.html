@@ -34,16 +34,22 @@
     // Audio Engine variables
     var dimensionSampler = [];
     var notes = [];
-    
+    var MAXIMUM_DISTORTION = 1;
+
+    // todo: pause_animation()
     // Freesound retriever
     search = initSearch(function () {
         // TODO: get list of countries from d3 component
-        search.querySoundsFromCountries(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
+        search.querySoundsFromCountries(["rim", "clap", "Africa", "violin", "bass", "fx"], function (sounds) { // , "guitar"
             // Audio Engine
-            sampler = audioInit()
+			[sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
+			// samplerDistortion.distortion = 0.1 * MAXIMUM_DISTORTION;
+			lfoSamplerDistortion.min = 0;
+			lfoSamplerDistortion.max = 0.1 * MAXIMUM_DISTORTION;
+			lfoSamplerDistortion.frequency = 1;
             notes = updateSounds(sounds);
         });
-        
+    // todo: start_animation()
     });
 </script>
 <script src="sketch.js"></script>
