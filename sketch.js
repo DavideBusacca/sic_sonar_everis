@@ -8,7 +8,11 @@ var scl = 20;//added
 var cols, rows;//added
 var zoff = 0;//added
 var pulsating;
-
+let overBox = false;
+let locked = false;
+var barrio_text;
+var main_text;
+var barrio_selected;
 var barrios_coords = [
   [0,	0,	0,	56,	0,	0,	0,	0,	0],//1
   [0,	0,	55,	50,	53,	57,	0,	0,	0],//2
@@ -78,7 +82,9 @@ function preload() {
 
 
 function setup() {
-  createCanvas(1366,768);
+  createCanvas(1366,868);
+  barrio_text = '';
+  main_text = 'Listen to Barrio by clicking on the map';
   no_cursor_color = color(76, 0, 153);
   pulsating = 0;
   curr_barrio = 0;
@@ -116,6 +122,9 @@ function draw() {
   clear();
   background(0);
 
+  textSize(32);
+  fill(255);
+  text(main_text, 1366-700-34,800);
 
 
 //////////// CURSOR STUFF
@@ -170,6 +179,8 @@ function draw() {
     var rect_y = int(table.getString(r,1))-1;
     var rect_x = int(table.getString(r,2))-1;
 
+
+    var temp_rect_size = rect_size - 10;
     let from = color(76, 0, 153);
     //let to = color(0, 102, 0);
     let to = color(255, 128, 0);
@@ -178,9 +189,46 @@ function draw() {
     var temp = (int(dens_table.getString(r,3))-537)/57687;
     //print(temp);
     let interA = lerpColor(from, to, temp);
-    fill(interA)
-    rect(rect_x*rect_size,rect_y*rect_size,rect_size,rect_size);
+
+
+    // Test if the cursor is over the box
+    if (
+      mouseX > rect_x*rect_size + 80 &&
+      mouseX < rect_x*rect_size + temp_rect_size + 80 &&
+      mouseY > rect_y*rect_size + 34 &&
+      mouseY < rect_y*rect_size + temp_rect_size + 34
+    ) {
+      //overBox = true;
+      //if (!locked) {
+        //stroke(255);
+        barrio_text = top_ten_table.getString(r, 1);
+        text(barrio_text,34,800);
+        interA.setAlpha(255);
+      //}
+    } else {
+      //stroke(156, 39, 176);
+      //fill(244, 122, 158);
+      interA.setAlpha(128);
+      //overBox = false;
+    }
+
+
+
+
+    if (r==curr_barrio-1){
+      interA.setAlpha(255);
+      fill(interA)
+      rect(rect_x*rect_size-5,rect_y*rect_size-5,rect_size,rect_size);
+    }
+    if (r!=curr_barrio-1){
+      fill(interA)
+      rect(rect_x*rect_size,rect_y*rect_size,temp_rect_size,temp_rect_size);
+    }
     fill(255);
+
+
+
+
 
     //let word = top_ten_table.getString(r,1)
     //text(word, rect_x*rect_size+5,rect_y*rect_size+rect_size);
@@ -225,16 +273,16 @@ function mouseClicked() {
   var X = int((mouseY-34)/rect_size);
   if (X>=0 && Y>0){
   if (barrios_coords[X][Y]){
-    curr_bario = barrios_coords[X][Y];
-    if (curr_bario != prev_curr_barrio){
+    curr_barrio = barrios_coords[X][Y];
+    if (curr_barrio != prev_curr_barrio){
       barrios.splice(0, barrios.length);
       //print(barrios_coords[X][Y]);
       notes = [];
-
+      main_text = top_ten_table.getString(curr_barrio-1, 1);
       search = initSearch(function () {
         var temp_list = [];
         for (var i = 3; i<13; i++){
-          append(temp_list, top_ten_table.getString(curr_bario, i));
+          append(temp_list, top_ten_table.getString(curr_barrio-1, i));
         }
         print(temp_list);
         //search.querySoundsFromCountries([,]
@@ -253,7 +301,7 @@ function mouseClicked() {
         }
       }
 
-      prev_curr_barrio = curr_bario;
+      prev_curr_barrio = curr_barrio;
     }
   }
   }
