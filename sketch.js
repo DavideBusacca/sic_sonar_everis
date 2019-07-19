@@ -82,7 +82,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(1366,868);
+  createCanvas(1366,968);
   barrio_text = '';
   main_text = 'Listen to Barrio by clicking on the map';
   no_cursor_color = color(76, 0, 153);
@@ -234,6 +234,9 @@ function draw() {
     //text(word, rect_x*rect_size+5,rect_y*rect_size+rect_size);
   }
   pop();
+  textSize(20);
+  text("Click one barrio on the left to change the music",1366-700-34,900);
+  text("supported by: everis",1366-700-34,950)
 }
 
 var left_arrow_pressed = false;
