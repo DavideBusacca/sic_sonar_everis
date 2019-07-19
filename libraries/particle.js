@@ -2,7 +2,7 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/BjoM9oKOAKY
-console.log("I'm starting");
+//console.log("I'm starting");
 
 let tail = [];
 
@@ -34,6 +34,7 @@ function Particle(X,Y,id,color) {
       //chickenWrapper();
       //var input = document.getElementById("test");
       //console.log("I'm calling " + this.id);
+      changeColor(this.color);
       playEvent(this.id);
       this.in = 1;
     }
@@ -74,7 +75,7 @@ function Particle(X,Y,id,color) {
     strokeWeight(2);
 
     //line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
-    ellipse(this.pos.x, this.pos.y, 3, 3);
+    ellipse(this.pos.x, this.pos.y, this.id+1, this.id+1);
     this.updatePrev();
   }
 

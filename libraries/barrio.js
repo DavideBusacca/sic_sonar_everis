@@ -13,7 +13,7 @@ function Barrio(X,Y, id, size, scl){
     this.colors = randomColor({
         count: 12,
         hue: color_palette[this.id%7],
-        format: 'rgba'
+        format: 'rgb'
     });
     this.flowfield = new Array(this.col_rows * this.col_rows);
     var count = 0

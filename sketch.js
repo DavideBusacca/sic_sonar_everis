@@ -7,6 +7,7 @@ var inc = 0.02;//added
 var scl = 20;//added
 var cols, rows;//added
 var zoff = 0;//added
+var pulsating;
 
 var barrios_coords = [
   [0,	0,	0,	56,	0,	0,	0,	0,	0],//1
@@ -44,6 +45,7 @@ var no_cursor_dir;
 var no_cursor_mag;
 var no_cursor_bar;
 var prev_no_cursor_bar;
+var no_cursor_color;
 
 var curr_barrio;
 var prev_curr_barrio;
@@ -77,7 +79,8 @@ function preload() {
 
 function setup() {
   createCanvas(1366,768);
-
+  no_cursor_color = color(76, 0, 153);
+  pulsating = 0;
   curr_barrio = 0;
   prev_curr_barrio = curr_barrio;
 
@@ -114,6 +117,7 @@ function draw() {
   background(0);
 
 
+
 //////////// CURSOR STUFF
 
   no_cursor_x = no_cursor_x + no_cursor_mag * cos(no_cursor_angle);
@@ -132,12 +136,10 @@ function draw() {
   if (no_cursor_y < 0) {
     no_cursor_y = set_h;
   }
-push();
-translate(1366-700-34,34);
-translate(no_cursor_x, no_cursor_y);
-rotate(no_cursor_angle);
-rect(-25, -5, 50, 10);
-pop();
+
+
+
+
   for (var c = 0; c< barrios.length; c++){
     push();
     translate(1366-700-34,34);
@@ -146,7 +148,18 @@ pop();
     pop();
   }
 
-
+  push();
+  translate(1366-700-34,34);
+  translate(no_cursor_x, no_cursor_y);
+  rotate(no_cursor_angle);
+  //rect(-25, -5, 50, 10);
+  fill(no_cursor_color);
+  ellipse(0,0,50,20);
+  if (pulsating > 10){
+    pulsating = 0;
+  }
+  pulsating = pulsating + 5;
+  pop();
 
 
   //cycle through the table
@@ -158,7 +171,9 @@ pop();
     var rect_x = int(table.getString(r,2))-1;
 
     let from = color(76, 0, 153);
-    let to = color(0, 102, 0);
+    //let to = color(0, 102, 0);
+    let to = color(255, 128, 0);
+    let = color(255,128,0);
     //colorMode(RGB); // Try changing to HSB.
     var temp = (int(dens_table.getString(r,3))-537)/57687;
     //print(temp);
@@ -198,6 +213,10 @@ function keyReleased() {
     } else if (keyCode === RIGHT_ARROW) {
         right_arrow_pressed = false;
     }
+}
+
+function changeColor(particle_color){
+  no_cursor_color = particle_color;
 }
 
 
