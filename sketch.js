@@ -289,7 +289,8 @@ function mouseClicked() {
         //["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"]
         search.querySounds(temp_list, function (sounds) {
             // Audio Engine
-            [sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
+            [sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong] =
+                audioInit(sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong);
             notes = updateSounds(sounds);
           });
       });
