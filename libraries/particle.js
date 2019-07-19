@@ -30,10 +30,10 @@ function Particle(X,Y,id,color) {
     this.acc.mult(0);
 
     if ((this.no_cursor_dist < 10) && (this.in == 0)){
-      print("hit " + this.id);
+      //print("hit " + this.id);
       //chickenWrapper();
       //var input = document.getElementById("test");
-      console.log("I'm calling " + this.id);
+      //console.log("I'm calling " + this.id);
       playEvent(this.id);
       this.in = 1;
     }

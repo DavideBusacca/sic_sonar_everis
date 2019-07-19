@@ -61,12 +61,14 @@ var barrios = [];//new Barrio(0,0,1);
 
 let table;
 let dens_table;
+let top_ten_table;
 
 function preload() {
   //my table is comma separated value "csv"
   //and has a header specifying the columns labels
   table = loadTable('data/grid_bcn.csv', 'csv', 'header');
   dens_table = loadTable('data/barris_geo1.csv','csv','header');
+  top_ten_table = loadTable('data/top_ten.csv','csv','header');
   //the file can be remote
   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
   //                  "csv", "header");
@@ -144,6 +146,9 @@ pop();
     pop();
   }
 
+
+
+
   //cycle through the table
   push();
   translate(80,34);
@@ -151,14 +156,26 @@ pop();
     //for (let c = 0; c < table.getColumnCount(); c++) {
     var rect_y = int(table.getString(r,1))-1;
     var rect_x = int(table.getString(r,2))-1;
+
+    let from = color(76, 0, 153);
+    let to = color(0, 102, 0);
+    //colorMode(RGB); // Try changing to HSB.
+    var temp = (int(dens_table.getString(r,3))-537)/57687;
+    //print(temp);
+    let interA = lerpColor(from, to, temp);
+    fill(interA)
     rect(rect_x*rect_size,rect_y*rect_size,rect_size,rect_size);
+    fill(255);
+
+    //let word = top_ten_table.getString(r,1)
+    //text(word, rect_x*rect_size+5,rect_y*rect_size+rect_size);
   }
   pop();
 }
 
 var left_arrow_pressed = false;
 var right_arrow_pressed = false;
-	
+
 setInterval(function () {
     if (left_arrow_pressed) {
         no_cursor_angle = no_cursor_angle - 0.15;
@@ -166,7 +183,7 @@ setInterval(function () {
 	   no_cursor_angle = no_cursor_angle + 0.15;
     }
 }, 80);
-	
+
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
         left_arrow_pressed = true;
@@ -174,14 +191,14 @@ function keyPressed() {
         right_arrow_pressed = true;
     }
 }
-	
+
 function keyReleased() {
     if (keyCode === LEFT_ARROW) {
         left_arrow_pressed = false;
     } else if (keyCode === RIGHT_ARROW) {
         right_arrow_pressed = false;
     }
-} 
+}
 
 
 function mouseClicked() {
@@ -197,7 +214,14 @@ function mouseClicked() {
 
       search = initSearch(function () {
         // TODO: get list of countries from d3 component
-        search.querySoundsFromCountries(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
+        var temp_list = [];
+        for (var i = 3; i<13; i++){
+          append(temp_list,top_ten_table.getString(curr_bario,i));
+        }
+        print(temp_list);
+        //search.querySoundsFromCountries([,]
+        //["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"]
+        search.querySoundsFromCountries(temp_list, function (sounds) {
             // Audio Engine
             [sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
             notes = updateSounds(sounds);

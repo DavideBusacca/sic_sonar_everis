@@ -11,7 +11,7 @@ function Barrio(X,Y, id, size, scl){
     this.id = id;
     this.no_cursor_in = 0;
     this.colors = randomColor({
-        count: 7,
+        count: 12,
         hue: color_palette[this.id%7],
         format: 'rgba'
     });
@@ -19,7 +19,7 @@ function Barrio(X,Y, id, size, scl){
     var count = 0
     for (var i = 0; i < this.col_rows; i ++){
         for (var j = 0; j < this.col_rows; j ++){
-            var particle_id = int(random(0,7));
+            var particle_id = int(random(0,12));
             var color = this.colors[particle_id];
             //print(color);
             this.particles[count] = new Particle(j*(this.scl)+this.scl/2,i*(this.scl)+this.scl/2,particle_id,color);
