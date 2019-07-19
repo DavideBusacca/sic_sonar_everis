@@ -4,7 +4,9 @@ function initSearch(callback) {
     search.setToken();
     search.page_size = 100;
     search.sounds = [];
-
+    search.natureQuery = ["nature", "trees", "wind", "wildlife", "leaves"];
+    search.conversationQuery = ["conversation", "dialogue"];
+    
     $.getJSON( "./data/instruments_by_origin.json", function(data) {
         search.countryData = data;
         callback();
@@ -47,7 +49,14 @@ Search.prototype.mainQuery = function (country, keywords, index, callback) {
     var self = this;
 
     // create filter string
-    if (keywords.length > 0) {
+    if (country == "") {
+        var filter_str = 'tag: (';
+        for (var i=0; i<keywords.length-1; i++) {
+	       filter_str += keywords[i].replace(/\s/g, " OR ");
+	       filter_str += " OR ";
+        }
+        filter_str += keywords[keywords.length-1] + ")";
+    } else if (keywords.length > 0) {
         var filter_str = 'tag: (';
         for (var i=0; i<keywords.length; i++) {
 	       filter_str += keywords[i].replace(/\s/g, " OR ");
@@ -92,26 +101,20 @@ Search.prototype.mainQuery = function (country, keywords, index, callback) {
                     console.log(self.sounds);
                     callback(self.sounds);
                 }
-
-                // create embbeds
-                // TODO: call audio callback load sounds
-//                var msg = ""
-//                var numSoundCurrentPage = results.results.length;
-//                for (var i = 0; i < numSoundCurrentPage/2; i++) {
-//                    var snd = results.getSound(i);
-//                    msg += "<div>" + self.freesoundIframe(snd.id) + "<div class='drag-me' draggable='true' ondragstart='drag(event)' sound-url='" + snd.previews["preview-lq-ogg"] + "'></div></div>";
-//                  }
-//                msg += "</ul>"
-//                document.getElementById("search-result-container").innerHTML = msg;
             });
     });
 };
 
 Search.prototype.querySoundsFromCountry = function (country, index, callback) {
-    // retrieve typical sounds from the given country
+    // retrieve typical sounds from the given country or nature sounds
     // TODO: perform queries for several country (or other concepts)
-    instruments = this.country2instruments(country);
-        console.log([country, instruments, index])
+    if (Array.isArray(country)) {
+        var instruments = country;
+        country = "";
+    } else {
+        var instruments = this.country2instruments(country);
+    }
+    console.log([country, instruments, index])
     this.mainQuery(country, instruments, index, callback);
 };
 
@@ -120,6 +123,20 @@ Search.prototype.querySoundsFromCountries = function (countries, callback) {
     this.count_countries = 0;
     this.sounds = new Array(this.num_countries).fill(null);
     Promise.all(countries.map((country,index) =>
+        this.querySoundsFromCountry(country, index, callback)
+    ))
+    .then(data => {
+      // before recieving response from freesound
+    })
+};
+
+Search.prototype.querySounds = function (countries, callback) {
+    this.num_countries = countries.length +1;
+    this.count_countries = 0;
+    this.categories = countries.concat([this.natureQuery, this.conversationQuery]);
+    console.log(this.categories)
+    this.sounds = new Array(this.num_countries).fill(null);
+    Promise.all(this.categories.map((country,index) =>
         this.querySoundsFromCountry(country, index, callback)
     ))
     .then(data => {

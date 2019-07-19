@@ -232,15 +232,14 @@ function mouseClicked() {
       notes = [];
 
       search = initSearch(function () {
-        // TODO: get list of countries from d3 component
         var temp_list = [];
         for (var i = 3; i<13; i++){
-          append(temp_list,top_ten_table.getString(curr_bario,i));
+          append(temp_list, top_ten_table.getString(curr_bario, i));
         }
         print(temp_list);
         //search.querySoundsFromCountries([,]
         //["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"]
-        search.querySoundsFromCountries(temp_list, function (sounds) {
+        search.querySounds(temp_list, function (sounds) {
             // Audio Engine
             [sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
             notes = updateSounds(sounds);
