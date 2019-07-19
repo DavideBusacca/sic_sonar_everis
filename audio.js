@@ -17,12 +17,17 @@ function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDisto
         console.log(err);
     }
 
+    bpmValue = getRandomIntArbitrary(60, 240);
+    distortionAmount = Math.random();
+    console.log("Distortion Amount: " + distortionAmount);
+
+
     Tone.Transport.bpm.value = bpmValue;
     console.log("BPM: " + Tone.Transport.bpm.value);
     var limiter = new Tone.Limiter(-3); // in dB
     var sampler = new Tone.Sampler( );
 
-    var samplerVolume = new Tone.Volume(-18);
+    var samplerVolume = new Tone.Volume(-12);
     var samplerDistortion = new Tone.Distortion(distortionAmount*MAXIMUM_DISTORTION);
     sampler.chain(samplerVolume, samplerDistortion, Tone.Master);
 
@@ -48,7 +53,7 @@ function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDisto
     });
 
 
-    var drumSamplerVolume = new Tone.Volume(-12);
+    var drumSamplerVolume = new Tone.Volume(-15);
     drumSampler.chain(drumSamplerVolume, Tone.Master);
 
 
