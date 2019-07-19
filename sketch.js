@@ -196,8 +196,8 @@ function mouseClicked() {
       notes = [];
 
       search = initSearch(function () {
-        // TODO: get list of countries from d3 component
-        search.querySoundsFromCountries(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
+        // TODO: get list of countries from d3 component (should be the TOP 10 countries)
+        search.querySounds(["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"], function (sounds) {
             // Audio Engine
             [sampler, samplerDistortion, lfoSamplerDistortion] = audioInit()
             notes = updateSounds(sounds);
