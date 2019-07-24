@@ -12,6 +12,8 @@ let overBox = false;
 let locked = false;
 var barrio_text;
 var main_text;
+var drum_text;
+
 var barrio_selected;
 var barrios_coords = [
   [0,	  0,	0,	56,	0,	0,	0,	0,	0 ],//1
@@ -54,6 +56,7 @@ var no_cursor_color;
 
 var curr_barrio;
 var prev_curr_barrio;
+var drums_on;
 
 // for red, green, and blue color values
 let r, g, b;
@@ -70,12 +73,15 @@ let table;
 let dens_table;
 let top_ten_table;
 
+let drum_image;
+
 function preload() {
   //my table is comma separated value "csv"
   //and has a header specifying the columns labels
   table = loadTable('data/grid_bcn.csv', 'csv', 'header');
   dens_table = loadTable('data/barris_geo1.csv','csv','header');
   top_ten_table = loadTable('data/top_ten.csv','csv','header');
+  drum_image = loadImage('assets/drum.png');
   //the file can be remote
   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
   //                  "csv", "header");
@@ -84,6 +90,9 @@ function preload() {
 
 function setup() {
   createCanvas(1366,968);
+  drum_image.resize(30, 30);
+  drums_on = 1;
+  drum_text = 'disable drums'
   barrio_text = '';
   main_text = 'Listen to Barrio by clicking on the map';
   no_cursor_color = color(76, 0, 153);
@@ -216,9 +225,6 @@ function draw() {
       //overBox = false;
     }
 
-
-
-
     if (r==curr_barrio-1){
       interA.setAlpha(255);
       fill(interA)
@@ -244,10 +250,22 @@ function draw() {
   textSize(32);
   text(main_text, 1366-700-34,800);
   textSize(20);
-  text("Click one barrio on the left to change the music",1366-700-34,900);
-  text("Use <- and -> arrow keys to navigate the soundscape",1366-700-34,925);
+  text("Click one barrio on the left to change soundscape",1366-700-34,850);
+  text("Use <- and -> arrow keys to navigate the soundscape",1366-700-34,875);
+
+
+  if(drums_on){
+    tint(255, 255);
+    drum_text = 'disable drums'
+  }else{
+    drum_text = 'enable drums'
+    tint(255, 60)
+  }
+  image(drum_image, 1366-700-34,875);
+  //filter(INVERT);
+  text(drum_text,1366-665-34,900);
   textSize(14);
-  text("supported by: everis",1366-700-34,950)
+  text("supported by: everis",1366-700-34,940)
   no_cursor_in = 0;
 }
 
@@ -284,6 +302,17 @@ function changeColor(particle_color){
 
 
 function mouseClicked() {
+//x = 632 y = 875
+  if (
+    mouseX > 632 &&
+    mouseX < 632 + 30 &&
+    mouseY > 875 &&
+    mouseY < 875 + 30
+  ) {
+    drums_on = !drums_on;
+
+  }
+
   var Y = int((mouseX-80)/rect_size);
   var X = int((mouseY-34)/rect_size);
   if (X>=0 && Y>=0){
