@@ -164,11 +164,13 @@ function draw() {
   rotate(no_cursor_angle);
   //rect(-25, -5, 50, 10);
   fill(no_cursor_color);
-  ellipse(0,0,50,20);
-  if (pulsating > 10){
-    pulsating = 0;
-  }
-  pulsating = pulsating + 5;
+  triangle(-20, -20, 20, 0, -20, 20);
+  //ellipse(0,0,50,20);
+
+  //if (pulsating > 10){
+  //  pulsating = 0;
+  //}
+  //pulsating = pulsating + 5;
   pop();
 
 
@@ -243,6 +245,8 @@ function draw() {
   text(main_text, 1366-700-34,800);
   textSize(20);
   text("Click one barrio on the left to change the music",1366-700-34,900);
+  text("Use <- and -> arrow keys to navigate the soundscape",1366-700-34,925);
+  textSize(14);
   text("supported by: everis",1366-700-34,950)
   no_cursor_in = 0;
 }
