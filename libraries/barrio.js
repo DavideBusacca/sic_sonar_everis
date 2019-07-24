@@ -3,7 +3,7 @@ var color_palette = ['red','orange','yellow','green','blue','purple','pink'];
 function Barrio(X,Y, id, size, scl){
     this.pos = createVector(X,Y);
     this.size = size;
-    this.inc = 0.2;
+    this.inc = 0.01;
     this.scl = scl;
     this.col_rows = ceil(this.size / this.scl);
     this.zoff = ceil(random(0,1000));
@@ -19,6 +19,8 @@ function Barrio(X,Y, id, size, scl){
     var count = 0
     for (var i = 0; i < this.col_rows; i ++){
         for (var j = 0; j < this.col_rows; j ++){
+    //for (var i = 0; i < 1; i ++){
+    //    for (var j = 0; j < 1; j ++){
             var particle_id = int(random(0,12));
             var color = this.colors[particle_id];
             //print(color);
@@ -67,7 +69,7 @@ function Barrio(X,Y, id, size, scl){
             }
             yoff += this.inc;
         }
-        this.zoff += 0.0005;
+        this.zoff += this.inc;//0.0005;
 
         for (var i = 0; i < this.particles.length; i++) {
             this.particles[i].follow(this.flowfield,this.scl,this.col_rows);

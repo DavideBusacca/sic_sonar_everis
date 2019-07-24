@@ -12,7 +12,7 @@ function Particle(X,Y,id,color) {
   this.acc = createVector(0, 0);
   this.dir = 0.5;
   this.color = color;
-  this.maxspeed = 2;
+  this.maxspeed = 5;
   this.id = id;
   this.h = 255/this.id;
   this.no_cursor_dist = 100000000;

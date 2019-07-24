@@ -14,19 +14,19 @@ var barrio_text;
 var main_text;
 var barrio_selected;
 var barrios_coords = [
-  [0,	0,	0,	56,	0,	0,	0,	0,	0],//1
-  [0,	0,	55,	50,	53,	57,	0,	0,	0],//2
-  [0,	0,	54,	48,	51,	52,	58,	0,	0],//3
-  [0,	0,	49,	47,	46,	45,	59,	0,	0],//4
-  [0,	40,	43,	36,	44,	60,	61,	73,	0],//5
+  [0,	  0,	0,	56,	0,	0,	0,	0,	0 ],//1
+  [0,	  0,	55,	50,	53,	57,	0,	0,	0 ],//2
+  [0,	  0,	54,	48,	51,	52,	58,	0,	0 ],//3
+  [0,	  0,	49,	47,	46,	45,	59,	0,	0 ],//4
+  [0,	  40,	43,	36,	44,	60,	61,	73,	0 ],//5
   [41,	42,	38,	37,	34,	35,	62,	63,	72],//6
   [39,	28,	29,	30,	33,	64,	65,	71,	70],//7
   [22,	25,	27,	31,	32,	6,	66,	68,	69],//8
-  [23,	24,	26,	8,	7,	5,	4,	67,	0],//9
-  [21,	20,	19,	9,	1,	2,	3,	0,	0],//10
-  [0,	17,	18,	15,	10,	0,	0,	0,	0],//11
-  [0,	0,	16,	14,	11,	0,	0,	0,	0],//12
-  [0,	0,	0,	13,	12,	0,	0,	0,	0]//13
+  [23,	24,	26,	8,	7,	5,	4,	67,	0 ],//9
+  [21,	20,	19,	9,	1,	2,	3,	0,	0 ],//10
+  [0,	  17,	18,	15,	10,	0,	0,	0,	0 ],//11
+  [0,	  0,	16,	14,	11,	0,	0,	0,	0 ],//12
+  [0,	  0,	0,	13,	12,	0,	0,	0,	0 ]//13
 ]
 
 var rect_size = 53;
@@ -48,6 +48,7 @@ var no_cursor_angle;
 var no_cursor_dir;
 var no_cursor_mag;
 var no_cursor_bar;
+var no_cursor_in;
 var prev_no_cursor_bar;
 var no_cursor_color;
 
@@ -93,6 +94,7 @@ function setup() {
 
   no_cursor_bar = 0;
   prev_no_cursor_bar = no_cursor_bar;
+  no_cursor_in = 0;
   //noCursor();
   var count = 0;
   //var size = 100;
@@ -102,7 +104,8 @@ function setup() {
       barrios[count] = new Barrio(i*bar_size,j*bar_size,count,bar_size, scl);
       count++;
     }
-  }
+  }    fill(255);
+    text(barrio_text,mouseX-80,mouseY);
 
   rad_count = 0;
   dir = 1;
@@ -122,9 +125,7 @@ function draw() {
   clear();
   background(0);
 
-  textSize(32);
-  fill(255);
-  text(main_text, 1366-700-34,800);
+
 
 
 //////////// CURSOR STUFF
@@ -202,12 +203,13 @@ function draw() {
       //if (!locked) {
         //stroke(255);
         barrio_text = top_ten_table.getString(r, 1);
-        text(barrio_text,34,800);
+        no_cursor_in = 1;
         interA.setAlpha(255);
       //}
     } else {
       //stroke(156, 39, 176);
       //fill(244, 122, 158);
+      //barrio_text = '';
       interA.setAlpha(128);
       //overBox = false;
     }
@@ -224,19 +226,25 @@ function draw() {
       fill(interA)
       rect(rect_x*rect_size,rect_y*rect_size,temp_rect_size,temp_rect_size);
     }
-    fill(255);
-
-
-
-
-
     //let word = top_ten_table.getString(r,1)
     //text(word, rect_x*rect_size+5,rect_y*rect_size+rect_size);
   }
   pop();
+
+
+  fill(255);
+
+  if(no_cursor_in){
+      textSize(20);
+      text(barrio_text,mouseX,mouseY);
+  }
+
+  textSize(32);
+  text(main_text, 1366-700-34,800);
   textSize(20);
   text("Click one barrio on the left to change the music",1366-700-34,900);
   text("supported by: everis",1366-700-34,950)
+  no_cursor_in = 0;
 }
 
 var left_arrow_pressed = false;
@@ -274,12 +282,11 @@ function changeColor(particle_color){
 function mouseClicked() {
   var Y = int((mouseX-80)/rect_size);
   var X = int((mouseY-34)/rect_size);
-  if (X>=0 && Y>0){
+  if (X>=0 && Y>=0){
   if (barrios_coords[X][Y]){
     curr_barrio = barrios_coords[X][Y];
     if (curr_barrio != prev_curr_barrio){
       barrios.splice(0, barrios.length);
-      //print(barrios_coords[X][Y]);
       notes = [];
       main_text = top_ten_table.getString(curr_barrio-1, 1);
       search = initSearch(function () {
@@ -287,7 +294,7 @@ function mouseClicked() {
         for (var i = 3; i<13; i++){
           append(temp_list, top_ten_table.getString(curr_barrio-1, i));
         }
-        print(temp_list);
+        //print(temp_list);
         //search.querySoundsFromCountries([,]
         //["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"]
         search.querySounds(temp_list, function (sounds) {
