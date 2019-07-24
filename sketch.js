@@ -74,6 +74,7 @@ let dens_table;
 let top_ten_table;
 
 let drum_image;
+let fontLight, fontRegular, fontItalic, fontBold;
 
 function preload() {
   //my table is comma separated value "csv"
@@ -82,6 +83,9 @@ function preload() {
   dens_table = loadTable('data/barris_geo1.csv','csv','header');
   top_ten_table = loadTable('data/top_ten.csv','csv','header');
   drum_image = loadImage('assets/drum.png');
+
+  fontLight = loadFont('assets/futura medium bt.ttf')
+  fontRegular = loadFont('assets/futur.ttf')
   //the file can be remote
   //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
   //                  "csv", "header");
@@ -90,6 +94,7 @@ function preload() {
 
 function setup() {
   createCanvas(1366,968);
+  textFont(fontRegular);
   drum_image.resize(30, 30);
   drums_on = 1;
   drum_text = 'disable drums'
@@ -241,24 +246,26 @@ function draw() {
 
 
   fill(255);
-
+  textFont(fontRegular);
   if(no_cursor_in){
       textSize(20);
       text(barrio_text,mouseX,mouseY);
   }
 
   textSize(32);
+
   text(main_text, 1366-700-34,800);
   textSize(20);
+  textFont(fontLight);
   text("Click one barrio on the left to change soundscape",1366-700-34,850);
   text("Use <- and -> arrow keys to navigate the soundscape",1366-700-34,875);
 
 
   if(drums_on){
     tint(255, 255);
-    drum_text = 'disable drums'
+    //drum_text = 'disable drums'
   }else{
-    drum_text = 'enable drums'
+    //drum_text = 'enable drums'
     tint(255, 60)
   }
   image(drum_image, 1366-700-34,875);
@@ -310,6 +317,13 @@ function mouseClicked() {
     mouseY < 875 + 30
   ) {
     drums_on = !drums_on;
+    if(drums_on){
+      //tint(255, 255);
+      drum_text = 'disable drums'
+    }else{
+      drum_text = 'enable drums'
+      //tint(255, 60)
+    }
 
   }
 

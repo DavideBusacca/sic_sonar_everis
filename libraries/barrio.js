@@ -76,6 +76,10 @@ function Barrio(X,Y, id, size, scl){
             this.particles[i].update(no_cursor_x, no_cursor_y,this.pos.x,this.pos.y);
             this.particles[i].edges(this.size,this.size);
             this.particles[i].show();
+            if (this.particles[i].in){
+            this.particles.splice(i, 1);
+          }
         }
+
     }
 }
