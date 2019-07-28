@@ -3,10 +3,21 @@ var NUM_CATEGORIES = 0;
 var MAXIMUM_DISTORTION = 0.4;
 var MAXIMUM_LFO = 1;
 
+var LIMITER_VOLUME = -3; // in dB
+var SAMPLER_VOLUME = -12;
+var DRUM_VOLUME = -15;
+var MUTE_DRUMS = false;
 
-function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDistortion=null, pingPong=null,
+function setMuteDrums(value, drumSamplerVolume){
+    MUTE_DRUMS = !(Boolean(value));
+    drumSamplerVolume.mute = MUTE_DRUMS;
+}
+
+
+function audioInit(drumSamplerVolume=null, sampler=null, drumSampler=null, limiter=null, lfoSamplerDistortion=null, pingPong=null,
                    bpmValue=120, distortionAmount=1){
     try{
+        drumSamplerVolume.dispose();
         lfoSamplerDistortion.dispose();
         pingPong.dispose();
         limiter.dispose();
@@ -24,10 +35,10 @@ function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDisto
 
     Tone.Transport.bpm.value = bpmValue;
     console.log("BPM: " + Tone.Transport.bpm.value);
-    var limiter = new Tone.Limiter(-3); // in dB
-    var sampler = new Tone.Sampler( );
+    var limiter = new Tone.Limiter(LIMITER_VOLUME);
+    var sampler = new Tone.Sampler(SAMPLER_VOLUME);
 
-    var samplerVolume = new Tone.Volume(-12);
+    var samplerVolume = new Tone.Volume();
     var samplerDistortion = new Tone.Distortion(distortionAmount*MAXIMUM_DISTORTION);
     sampler.chain(samplerVolume, samplerDistortion, Tone.Master);
 
@@ -53,7 +64,8 @@ function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDisto
     });
 
 
-    var drumSamplerVolume = new Tone.Volume(-15);
+    var drumSamplerVolume = new Tone.Volume(DRUM_VOLUME);
+    // drumSamplerVolume.mute = MUTE_DRUMS;
     drumSampler.chain(drumSamplerVolume, Tone.Master);
 
 
@@ -94,7 +106,7 @@ function audioInit(sampler=null, drumSampler=null, limiter=null, lfoSamplerDisto
     Tone.Transport.pause();
     Tone.Transport.start();
 
-    return [sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong]
+    return [drumSamplerVolume, sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong]
 
 }
 

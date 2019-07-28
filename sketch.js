@@ -317,6 +317,7 @@ function mouseClicked() {
     mouseY < 875 + 30
   ) {
     drums_on = !drums_on;
+    setMuteDrums(drums_on, drumSamplerVolume);
     if(drums_on){
       //tint(255, 255);
       drum_text = 'disable drums'
@@ -346,8 +347,8 @@ function mouseClicked() {
         //["rim", "clap", "Africa", "guitar", "violin", "bass", "fx"]
         search.querySounds(temp_list, function (sounds) {
             // Audio Engine
-            [sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong] =
-                audioInit(sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong);
+            [drumSamplerVolume, sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong] =
+                audioInit(drumSamplerVolume, sampler, drumSampler, limiter, lfoSamplerDistortion, pingPong);
             notes = updateSounds(sounds);
           });
       });
