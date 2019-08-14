@@ -159,6 +159,7 @@ function updateSounds(sounds){ //, duration
             console.log(soundsInCategory[l])
             sampler.add(note, soundsInCategory[l]["previews"]["preview-lq-ogg"]);
             console.log("Updated " + soundsInCategory[l]["previews"]["preview-lq-ogg"] + " to " + note);
+            console.log("") // log soundname, username and license here         
             idx += 1;
         }
         notes.push(notesInCategory);
