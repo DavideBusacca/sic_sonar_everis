@@ -79,7 +79,7 @@ Search.prototype.mainQuery = function (country, keywords, index, callback) {
 
         freesound.textSearch("", {
                 page_size: 1,
-                fields: 'id,name,previews,duration,username,license',
+                fields: 'id,name,previews,duration',
                 page_size: self.page_size,
                 page: page,
                 filter: filter_str,
